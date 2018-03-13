@@ -10,8 +10,8 @@ services:
     volumes:
       - ../dkdata/postgres:/var/lib/postgresql/data
   web:
-    image: tamarindo
-    container_name: tamarindo
+    image: {{name}}
+    container_name: {{name}}
     build: .
     command: start_dev.sh
     # command: sleep 999999999

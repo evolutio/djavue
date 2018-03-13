@@ -5,4 +5,4 @@ dkdata
 coverage.xml
 htmlcov/
 .idea
-/tamarindo.log
+/{{name}}.log

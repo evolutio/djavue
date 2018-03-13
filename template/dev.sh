@@ -11,7 +11,7 @@ YELLOW='\e[0;33m'
 # 3) Be happy
 
 
-workon tamarindo  # Change this to your project's name
+workon {{name}}  # Change this to your project's name
 
 export PROJ_BASE="$(dirname ${BASH_SOURCE[0]})"
 CD=$(pwd)
@@ -77,7 +77,7 @@ function djangorun {
 function dkbuild {
     CD=$(pwd)
     cd $PROJ_BASE
-    docker build -t tamarindo .
+    docker build -t {{name}} .
     exitcode=$?
     cd $CD
     return $exitcode
@@ -86,7 +86,7 @@ function dkbuild {
 function dknpminstall {
     CD=$(pwd)
     cd $PROJ_BASE
-    docker run -it --rm -v $(pwd):/app -w /app/frontend -e NODE_ENV=development tamarindo npm install
+    docker run -it --rm -v $(pwd):/app -w /app/frontend -e NODE_ENV=development {{name}} npm install
     exitcode=$?
     cd $CD
     return $exitcode
@@ -111,7 +111,7 @@ function dkup {
 }
 
 function dk {
-    docker exec -it tamarindo $@
+    docker exec -it {{name}} $@
 }
 
 function runflake8 {
@@ -135,7 +135,7 @@ function echo_yellow {
     echo -e "${YELLOW}$1${RESTORE}";
 }
 
-echo_green "Welcome to tamarindo's dev env"
+echo_green "Welcome to {{name}}'s dev env"
 echo_green "Hint: autocomplete works for the commands below ;)"
 echo_red   "------------------------------------------------------------------------"
 devhelp
