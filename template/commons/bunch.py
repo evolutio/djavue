@@ -1,0 +1,2 @@
+class Bunch(object):
+    pass

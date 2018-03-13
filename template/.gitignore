@@ -1,6 +1,8 @@
-.DS_Store
-node_modules/
-dist/
-coverage/
-npm-debug.log
-.nuxt/
+__pycache__
+dkdata
+*.pyc
+.coverage
+coverage.xml
+htmlcov/
+.idea
+/tamarindo.log
