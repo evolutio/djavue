@@ -10,6 +10,12 @@ module.exports = {
       "required": true,
       "label": "Project description",
       "default": "A Vue.js project"
+    },
+    "goiaba": {
+      "type": "string",
+      "required": true,
+      "label": "Quer goiaba?",
+      "default": "Sim"
     }
   },
   "skipInterpolation": "frontend/**/*.vue",
