@@ -21,5 +21,12 @@ module.exports = {
       done(null, files)
     }
     metalsmith.use(customMetalsmithPlugin)
+  },
+  complete (data, {logger, chalk}) {
+    console.log('-----------complete')
+    console.log(data)
+    // if (!data.inPlace) {
+    //   logger.log(`cd ${chalk.yellow(data.destDirName)}`)
+    // }
   }
 }
