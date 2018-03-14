@@ -1,8 +1,9 @@
+var fs = require('fs');
 module.exports = {
   "complete": function (data, {logger, chalk}) {
     const msg = `${chalk.green('completeEEEEEEEE')}`
-    console.log(msg)
     logger.log(msg)
+    fs.rename('__name__', '__bilu__')
     // logger.log('-----------complete')
     // logger.log(data)
     // if (!data.inPlace) {
