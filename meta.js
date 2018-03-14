@@ -23,8 +23,8 @@ module.exports = {
     metalsmith.use(customMetalsmithPlugin)
   },
   complete (data, {logger, chalk}) {
-    console.log('-----------complete')
-    console.log(data)
+    logger.log('-----------complete')
+    logger.log(data)
     // if (!data.inPlace) {
     //   logger.log(`cd ${chalk.yellow(data.destDirName)}`)
     // }
