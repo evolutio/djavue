@@ -1,4 +1,9 @@
 var fs = require('fs');
+
+function onerror(err) {
+    if ( err ) console.log('ERROR: ' + err);
+}
+
 module.exports = {
   "complete": function (data, {logger, chalk}) {
     const msg = `${chalk.green('completeEEEEEEEE')}`
@@ -39,4 +44,15 @@ module.exports = {
   //   }
   //   metalsmith.use(customMetalsmithPlugin)
   // },
+  "complete": function (data, {logger, chalk}) {
+    const msg = `${chalk.green('completeEEEEEEEE')}`
+    logger.log(msg)
+    const base = data.inPlace ? '' : data.destDirName + '/'
+    fs.rename(`${base}__name__`, `${base}${data.name}`, onerror)
+    // logger.log('-----------complete')
+    // logger.log(data)
+    // if (!data.inPlace) {
+    //   logger.log(`cd ${chalk.yellow(data.destDirName)}`)
+    // }
+  },
 }
