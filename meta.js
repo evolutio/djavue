@@ -1,4 +1,14 @@
 module.exports = {
+  "complete": function (data, {chalk}) {
+    const msg = `${chalk.green('completeEEEEEEEE')}`
+    console.log(msg)
+    logger.log(msg)
+    // logger.log('-----------complete')
+    // logger.log(data)
+    // if (!data.inPlace) {
+    //   logger.log(`cd ${chalk.yellow(data.destDirName)}`)
+    // }
+  },
   "prompts": {
     "name": {
       "type": "string",
@@ -10,13 +20,13 @@ module.exports = {
       "required": true,
       "label": "Project description",
       "default": "A Vue.js project"
-    },
-    "goiaba": {
-      "type": "string",
-      "required": true,
-      "label": "Quer goiaba?",
-      "default": "Sim"
     }
+    // "goiaba": {
+    //   "type": "string",
+    //   "required": true,
+    //   "label": "Quer goiaba?",
+    //   "default": "Sim"
+    // }
   },
   "skipInterpolation": "frontend/**/*.vue",
   // "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}",
@@ -28,14 +38,4 @@ module.exports = {
   //   }
   //   metalsmith.use(customMetalsmithPlugin)
   // },
-  "complete": function (data, {chalk}) {
-    const msg = `${chalk.green('completeEEEEEEEE')}`
-    console.log(msg)
-    logger.log(msg)
-    // logger.log('-----------complete')
-    // logger.log(data)
-    // if (!data.inPlace) {
-    //   logger.log(`cd ${chalk.yellow(data.destDirName)}`)
-    // }
-  }
 }
