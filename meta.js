@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   "skipInterpolation": "frontend/**/*.vue",
-  "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}",
+  // "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}",
   "metalsmith": function (metalsmith, opts, helpers) {
     function customMetalsmithPlugin (files, metalsmith, done) {
       console.log('files')
