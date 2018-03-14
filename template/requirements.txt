@@ -3,3 +3,4 @@ django-sql-explorer==1.1.1
 psycopg2==2.7.4
 python-dateutil==2.6.1
 coverage==4.5
+tblib==1.3.2

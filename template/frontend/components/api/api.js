@@ -14,9 +14,10 @@ const api = {
         return get('/api/whoami');
     },
     add_todo(newtask){
-        //TODO: The backend is not actually implemented yet.
-        //The rest is left as an exercise ;-)
-        return post('/api/add_todo', {newtask: newtask});
+        return post('/api/add_todo', {new_task: newtask});
+    },
+    list_todos(){
+        return get('/api/list_todos');
     }
 }
 export default api;

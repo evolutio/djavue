@@ -3,6 +3,7 @@
     <v-toolbar color="cyan" dark>
       <v-text-field class="ma-4" v-model="newtask" @keyup.enter="add()" label="Add todo and hit enter" :loading="adding"/>
     </v-toolbar>
+    <v-progress-linear :indeterminate="true" v-if="loading"></v-progress-linear>
     <v-list two-line>
       <template v-for="item in items">
         <v-list-tile :key="item.title">
@@ -27,11 +28,18 @@ export default {
     return {
       newtask: '',
       adding: false,
+      loading: false,
       items: [
-        {description: 'Do the laundry', done: true},
-        {description: 'Walk the dog', done: false}
       ]
     }
+  },
+  mounted () {
+    this.loading = true
+    AppApi.list_todos().then(response => {
+      const todos = response.data.todos
+      this.items = todos
+      this.loading = false
+    })
   },
   methods: {
     add () {
