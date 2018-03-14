@@ -33,7 +33,7 @@ To get started:
   
   ${chalk.yellow(cmds)}
 
-Documentation can be found at https://vuejs-templates.github.io/webpack
+Documentation can be found at https://github.com/evolutio/djavue
 `
     console.log(message)
   },
