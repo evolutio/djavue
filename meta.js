@@ -25,7 +25,8 @@ module.exports = {
     fs.rename(`${base}__name__`, `${base}${data.name}`, onerror)
     cmds = data.inPlace ? '' : `cd ${data.destDirName}\n  `
     cmds += `source dev.sh
-  setup_help`
+  follow the instructions on README.md
+  (or see https://github.com/evolutio/djavue/blob/master/template/README.md)`
     const message = `
 # ${chalk.green('Project initialization finished!')}
 # ========================
