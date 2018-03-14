@@ -28,7 +28,7 @@ module.exports = {
   //   }
   //   metalsmith.use(customMetalsmithPlugin)
   // },
-  complete: function (data, {logger, chalk}) {
+  "complete": function (data, {chalk}) {
     const msg = `${chalk.green('completeEEEEEEEE')}`
     console.log(msg)
     logger.log(msg)
