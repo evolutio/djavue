@@ -1,5 +1,5 @@
 module.exports = {
-  "complete": function (data, {chalk}) {
+  "complete": function (data, {logger, chalk}) {
     const msg = `${chalk.green('completeEEEEEEEE')}`
     console.log(msg)
     logger.log(msg)
