@@ -22,7 +22,7 @@ module.exports = {
     }
     metalsmith.use(customMetalsmithPlugin)
   },
-  complete (data, {logger, chalk}) {
+  complete: function (data, {logger, chalk}) {
     logger.log('completeEEEEEEEE')
     logger.log('-----------complete')
     logger.log(data)
