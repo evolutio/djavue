@@ -23,6 +23,7 @@ module.exports = {
     metalsmith.use(customMetalsmithPlugin)
   },
   complete (data, {logger, chalk}) {
+    logger.log('completeEEEEEEEE')
     logger.log('-----------complete')
     logger.log(data)
     // if (!data.inPlace) {
