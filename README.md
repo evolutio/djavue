@@ -8,7 +8,7 @@ Being a web-developer for 18 years, I have found that by doing things in a certa
 
 This is a vue-cli template for a **full-stack**, **production-ready** web application using Django and Vue.js.
 
-It helps me (and it may help you) start new projects that already have those set of good practices built into them.
+It helps me (and it may help you) start new projects that already have a useful set of good practices built into them.
 
 ### Usage
 
