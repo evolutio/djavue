@@ -5,9 +5,9 @@ stages:
     - deploy
 
 variables:
-  
-  TEST_IMAGE: 230051648079.dkr.ecr.us-west-2.amazonaws.com/{{name}}:${CI_COMMIT_REF_NAME}_testing
-  RELEASE_IMAGE: 230051648079.dkr.ecr.us-west-2.amazonaws.com/{{name}}:${CI_COMMIT_REF_NAME}
+  ECR_HOME: 111111111111.dkr.ecr.us-west-2.amazonaws.com
+  TEST_IMAGE: $ECR_HOME/{{name}}:${CI_COMMIT_REF_NAME}_testing
+  RELEASE_IMAGE: $ECR_HOME/{{name}}:${CI_COMMIT_REF_NAME}
   HOST_TEST: ubuntu@172.31.45.201
   # HOST_PROD: ubuntu@app.{{name}}.com.br
 
