@@ -32,7 +32,7 @@ For initial setup, follow the README.md that was generated inside your `myprojec
 - A working TODO-list that saves TODO items to a database
 - Backend-less development mode, using [mock-apis](https://medium.com/@tonylampada/javascript-mock-api-why-you-might-want-to-have-one-232b3ba46b12)
 
-
+![screenshot](http://image.ibb.co/f0ekjc/image.png)
 
 ### Contributing
 
