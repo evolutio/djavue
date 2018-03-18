@@ -10,7 +10,6 @@ Requirements:
 Step by step
 
 ```bash
-cd {{name}}_web
 source dev.sh  # import useful bash functions
 devhelp  # like this one ;)
 dkbuild  # builds the docker image for this project. The first time Will take a while.
