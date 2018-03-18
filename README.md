@@ -11,6 +11,8 @@ $ npm install -g vue-cli
 $ vue init evolutio/djavue myproject
 ```
 
+For initial setup, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
+
 ### What's Included
 
 - docker-based development environment
