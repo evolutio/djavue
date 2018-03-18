@@ -10,6 +10,10 @@ This is a vue-cli template for a **full-stack**, **production-ready** web applic
 
 It helps me (and it may help you) start new projects that already have a useful set of good practices built into them.
 
+### Você fala português?
+
+Veja o video explicando mais sobre este template ;) --> https://youtu.be/It8Zx0cJYyg
+
 ### Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
