@@ -3,6 +3,7 @@ RESTORE='\033[0m'
 RED='\033[00;31m'
 GREEN='\033[00;32m'
 YELLOW='\e[0;33m'
+HOST_PROD={{name}}.example.com
 
 # Because nobody wants to be memorizing commands all the time
 # Instructions:
@@ -41,6 +42,10 @@ function devhelp {
     echo -e "${GREEN}dk <command>${RESTORE}      Runs ${RED}<command>${RESTORE} inside main container"
     echo -e "                  Example:"
     echo -e "                   dk ${RED}bash${RESTORE}"
+    echo -e ""
+    echo -e "${GREEN}dkrun_prod${RESTORE}        Starts django and nuxt (dockerized) in production mode"
+    echo -e ""
+    echo -e "${GREEN}deploy_prod${RESTORE}       Connects to the production server and deploys it"
     echo -e ""
     echo -e "${GREEN}dkpgnginx${RESTORE}         Starts dockerized ${RED}nginx and postgres${RESTORE}"
     echo -e ""
@@ -108,6 +113,25 @@ function dkup {
     exitcode=$?
     cd $CD
     return $exitcode
+}
+
+function dkrun_prod {
+    docker stop {{name}}
+    docker rm {{name}}
+    docker run --name {{name}} -d --env-file /home/ubuntu/{{name}}.env \
+        -p 3000:3000 -p 8000:8000 \
+        -v /home/ubuntu/dkdata/{{name}}:/dkdata \
+        {{name}} start_web.sh
+}
+
+function deploy_prod {
+  ssh ubuntu@$HOST_PROD "
+    cd ~/{{name}}
+    git reset --hard
+    git pull
+    source dev.sh
+    dkrun_prod
+  "
 }
 
 function dk {
