@@ -14,6 +14,10 @@ It helps me (and it may help you) start new projects that already have a useful 
 
 Veja o video explicando mais sobre este template ;) --> https://youtu.be/It8Zx0cJYyg
 
+Vc tb pode comprar o curso completo* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
+
+\* O curso do djavue está em construção. Comprando agora vc paga mais barato e continua tendo acesso ao conteúdo que ainda vai ser produzido ;-)
+
 ### Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
