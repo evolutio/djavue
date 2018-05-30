@@ -14,7 +14,7 @@ HOST_PROD={{name}}.example.com
 
 workon {{name}}  # Change this to your project's name
 
-export PROJ_BASE="$(dirname ${BASH_SOURCE[0]})"
+export PROJ_BASE="$(dirname "${BASH_SOURCE[0]}")"
 CD=$(pwd)
 cd $PROJ_BASE
 export PROJ_BASE=$(pwd)
