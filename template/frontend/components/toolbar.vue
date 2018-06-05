@@ -47,6 +47,7 @@
 <script>
   import Vuex from 'vuex'
   import loginDialog from '~/components/login-dialog.vue'
+  import Snacks from '~/helpers/Snacks.js'
   import AppApi from '~apijs'
   export default {
     components: {
@@ -67,6 +68,7 @@
       logout(){
         AppApi.logout().then(()=>{
           this.$store.commit('SET_LOGGED_USER', null);
+          Snacks.show(this.$store, {text: 'Até logo!'})
         });
       }
     }
