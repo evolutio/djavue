@@ -15,7 +15,7 @@
       v-model="snack.visible"
     >
       {{snack.text}}
-      <v-btn dark flat @click.native="snackbar = false">Close</v-btn>
+      <v-btn dark flat @click.native="snack.visible = false">Close</v-btn>
     </v-snackbar>
   </v-app>
 </template>
