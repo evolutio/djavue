@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^2.0.8",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.1",

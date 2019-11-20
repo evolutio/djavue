@@ -43,5 +43,17 @@ module.exports = {
   plugins: [
     '~plugins/vuetify.js',
     {src: '~plugins/vue2-filters', ssr: false},
+  ],
+  modules: [
+    ['@nuxtjs/pwa', {
+      manifest: {
+        name: '{{name}}',
+        short_name: '{{name}}',
+        lang: 'pt-BR',
+        theme_color: 'blue',
+      },
+      workbox: {
+      }
+    }],
   ]
 }
