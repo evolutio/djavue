@@ -1,0 +1,39 @@
+version: "2.4"
+
+services:
+  postgres_local:
+    image: "postgres:13.3-alpine"
+    ports:
+      - "15432:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  django_api:
+    image: {{ name }}
+    network_mode: "host"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    # environment:
+    #   - POSTGRES_HOST=postgres_local
+    expose:
+      - "8000"
+      - "3000"
+    volumes:
+      - ./:/app
+    tty: true
+    depends_on:
+      - postgres_local
+
+  nginx:
+    image: nginx
+    network_mode: "host"
+    volumes:
+      - ./docker/nginx/default_local:/etc/nginx/conf.d/default.conf
+
+volumes:
+  postgres_data:

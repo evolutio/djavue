@@ -1,8 +1,14 @@
-FROM python:3.6
+FROM python:3.9-slim
 
-RUN apt-get update --fix-missing && \
-    apt-get install -y curl vim nano git locales zip unzip && \
-    pip install uwsgi uwsgitop
+RUN apt-get update --fix-missing \
+	&& apt-get install -y --no-install-recommends \
+		build-essential \
+		libpq-dev \
+		python-dev \
+        wget curl vim locales zip unzip apt-utils \
+		wait-for-it \
+	&& rm -rf /var/lib/apt/lists/* \
+    && pip install uwsgi uwsgitop
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
@@ -12,26 +18,34 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     echo "alias ll='ls \$LS_OPTIONS -l'" >>~/.bashrc && \
     echo "alias l='ls \$LS_OPTIONS -lA'" >>~/.bashrc
 
-RUN cd /tmp && \
-    wget --quiet https://nodejs.org/dist/v9.1.0/node-v9.1.0-linux-x64.tar.xz && \
-    tar xf node-v9.1.0-linux-x64.tar.xz && \
-    cp -r node-v9.1.0-linux-x64/* /usr && \
-    rm node-v9.1.0-linux-x64.tar.xz && \
-    npm install -g pm2
+# Install Node 14 e NPM
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs
 
 RUN mkdir /dkdata
+
 WORKDIR /app
 
 COPY requirements.txt ./
+
 RUN pip install -r requirements.txt
 
+ENV PYTHONUNBUFFERED=1 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONIOENCODING=UTF-8
 
 COPY frontend/package.json frontend/package.json
 RUN cd frontend && npm install
+
 COPY frontend frontend
 RUN cd frontend && npm run build
 
-ENV SHELL=/bin/bash PYTHONUNBUFFERED=1 NODE_ENV=production API_MOCK=0 PYTHONIOENCODING=UTF-8 LANG=en_US.UTF-8 DJANGO_STATIC_ROOT=/dkdata/static DJANGO_LOG_FILE=/dkdata/{{name}}.log UWSGI_PROCESSES=3 PORT=3000 HOST=0.0.0.0 API_BASE_URL=http://localhost:8000
+ENV SHELL=/bin/bash LANG=en_US.UTF-8
 
 COPY . /app
-COPY docker/bin/* /usr/bin/
+
+EXPOSE 8000
+
+# COPY docker/bin/* /usr/bin/
+
+CMD ["./docker/bin/start_dev.sh"]

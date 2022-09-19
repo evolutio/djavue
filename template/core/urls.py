@@ -1,12 +1,13 @@
-from core import views
-from django.conf.urls import url
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
-    url(r'^api/dapau$', views.dapau),
-    url(r'^api/login$', views.login),
-    url(r'^api/logout$', views.logout),
-    url(r'^api/whoami$', views.whoami),
+    path('dapau', views.dapau),
+    path('login', views.login),
+    path('logout', views.logout),
+    path('whoami', views.whoami),
 
-    url(r'^api/add_todo$', views.add_todo),
-    url(r'^api/list_todos$', views.list_todos),
+    path('add_todo', views.add_todo),
+    path('list_todos', views.list_todos),
 ]
