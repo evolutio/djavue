@@ -11,7 +11,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   django_api:
-    image: { { name } }
+    image: {{ name }}
     network_mode: "host"
     build:
       context: ./
