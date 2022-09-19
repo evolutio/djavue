@@ -1,5 +1,8 @@
 FROM python:3.9-slim
 
+WORKDIR /app
+
+# Install basic SO and Python
 RUN apt-get update --fix-missing \
 	&& apt-get install -y --no-install-recommends \
 		build-essential \
@@ -20,12 +23,12 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
 
 # Install Node 14 e NPM
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs \
+    && npm install -g pm2@5.2.0
 
 RUN mkdir /dkdata
 
-WORKDIR /app
-
+#### Prepare BACKEND Django API
 COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
@@ -34,15 +37,21 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONIOENCODING=UTF-8
 
-COPY frontend/package.json frontend/package.json
-RUN cd frontend && npm install
+#### Prepare Frontend Vuejs + Nuxt App
 
-COPY frontend frontend
+COPY ./frontend/package.json ./frontend/package-lock.json ./frontend/
+
+RUN cd frontend && npm install \
+    && npm cache clean --force \
+    && npm cache verify
+
+COPY ./frontend ./frontend
+
 RUN cd frontend && npm run build
 
 ENV SHELL=/bin/bash LANG=en_US.UTF-8
 
-COPY . /app
+COPY . ./
 
 EXPOSE 8000
 

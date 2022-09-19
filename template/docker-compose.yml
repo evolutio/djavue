@@ -11,7 +11,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   django_api:
-    image: {{ name }}
+    image: { { name } }
     network_mode: "host"
     build:
       context: ./
@@ -25,6 +25,7 @@ services:
       - "3000"
     volumes:
       - ./:/app
+      - /app/frontend/node_modules
     tty: true
     depends_on:
       - postgres_local

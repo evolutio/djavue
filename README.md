@@ -14,7 +14,7 @@ It helps me (and it may help you) start new projects that already have a useful 
 
 Veja o video explicando mais sobre este template ;) --> https://youtu.be/It8Zx0cJYyg
 
-Vc tb pode comprar o curso completo* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
+Vc tb pode comprar o curso completo\* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
 
 \* O curso do djavue está em construção. Comprando agora vc paga mais barato e continua tendo acesso ao conteúdo que ainda vai ser produzido ;-)
 
@@ -22,14 +22,13 @@ Vc tb pode comprar o curso completo* sobre o djavue e aprender uma PORRADA de co
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
-``` bash
+```bash
 $ npm install -g @vue/cli
 $ # vue init evolutio/djavue myproject
 $ vue init huogerac/djavue mytodolist
 $ cd mytodolist
 $ docker-compose build
 $ docker-compose up -d
-$ docker-compose exec django_api ./manage.py migrate
 $ docker-compose exec django_api ./manage.py loaddata docker/fixtures/todolist.json
 $ docker-compose logs -f django_api
 ```
@@ -87,7 +86,6 @@ This project will come with a `.gitlab-ci.yml` file. If you host your code in a 
 
 #### 4. TDD is the fastest way
 
-When you have a mockapi, that code is not just junk that you don't need. On the contrary. It contains a **valuable, unambiguous specification of how your backend must behave**. At that point, the fastest way to build your backend is to look at your mock apis as an orienting guide for test cases. 
+When you have a mockapi, that code is not just junk that you don't need. On the contrary. It contains a **valuable, unambiguous specification of how your backend must behave**. At that point, the fastest way to build your backend is to look at your mock apis as an orienting guide for test cases.
 
 Look at mock apis --> write tests --> implement the backend --> repeat
-
