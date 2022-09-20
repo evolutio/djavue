@@ -7,52 +7,67 @@
       </v-card>
       <v-card>
         <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+          Bem-vindo ao template de App Djàvue
         </v-card-title>
         <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
+          <p>Djávue tem Vuetify + Nuxt.js no frontend e Django no Backend, tudo já configurado e pronto para uso em Produção.</p>
           <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
+            Links úteis:</p>
+          <p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/huogerac/djavue/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Repo deste template
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/evolutio/djavue/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Repo oficial djàvue template
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://vuetifyjs.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Vuetify
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://nuxtjs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Nuxt.js
+                </a>
+              </li>
+            </ul>
           </p>
           <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
+            Achou um problema? Cadastre uma <a
+              href="https://github.com/huogerac/djavue/issues"
               target="_blank"
               rel="noopener noreferrer"
               title="contribute"
             >
-              issue board
+              Issue aqui
             </a>.
           </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
+          <p>Obrigado por utilizar este template.</p>
           <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+            <em><small>&mdash; Enzo Pascal 🎩</small></em>
           </div>
           <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
           <a
             href="https://github.com/nuxt/nuxt.js"
             target="_blank"
@@ -66,9 +81,9 @@
           <v-btn
             color="primary"
             nuxt
-            to="/inspire"
+            to="/inicio"
           >
-            Continue
+            Continuar
           </v-btn>
         </v-card-actions>
       </v-card>

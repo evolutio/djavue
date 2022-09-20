@@ -32,7 +32,7 @@
             <v-btn
               :loading="loading"
               :disabled="!valid"
-              color="secondary"
+              color="primary"
               class="mr-4"
               x-large
               block
