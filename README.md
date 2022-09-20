@@ -33,7 +33,9 @@ $ docker-compose exec django_api ./manage.py loaddata docker/fixtures/todolist.j
 $ docker-compose logs -f django_api
 ```
 
-For initial setup, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
+🚀 Access the `http://localhost`, `http://localhost/api` or `http://localhost/admin`
+
+For more setup information, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
 
 ### What's Included
 
