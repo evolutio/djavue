@@ -1,19 +1,11 @@
 import api from './config.js'
-
-const dataToForm = (params) => {
-  params = params || {}
-  const formData = new FormData()
-  for (const k of Object.keys(params)) {
-    formData.append(k, params[k])
-  }
-  return formData
-}
+import apiHelpers from './helpers.js'
 
 export default {
   login: (username, password) => {
     return new Promise((resolve, reject) => {
       api
-        .post('/api/login', dataToForm({ username, password }))
+        .post('/api/login', apiHelpers.dataToForm({ username, password }))
         .then((response) => {
           return resolve(response.data)
         })

@@ -1,4 +1,5 @@
 import api from './config.js'
+import apiHelpers from './helpers.js'
 
 export default {
   getTasks: () => {
@@ -13,10 +14,10 @@ export default {
         })
     })
   },
-  addTask: (task) => {
+  addNeTask: (description) => {
     return new Promise((resolve, reject) => {
       api
-        .post('/api/tasks/', task)
+        .post('/api/add_todo', apiHelpers.dataToForm({ description }))
         .then((response) => {
           return resolve(response.data)
         })

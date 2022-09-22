@@ -1,6 +1,11 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
+
+      <v-snackbar v-model="snackbar.show" color="red accent-2">
+        {{snackbar.message}}
+      </v-snackbar>
+
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
       </v-card>
@@ -28,7 +33,6 @@
               append-icon="fa-key"
               @keyup.enter="login"
             />
-
             <v-btn
               :loading="loading"
               :disabled="!valid"
@@ -76,13 +80,13 @@ export default {
       this.loading = true
       AuthApi.login(this.username, this.password)
         .then((user) => {
-          console.log(user)
+          if (!user) {
+            this.snackbar.message = 'Usuário ou senha invalida'
+            this.snackbar.show = true
+            return
+          }
           this.saveLoggedUser(user)
           this.$router.push('/tasks/list')
-        })
-        .catch((error) => {
-          this.snackbar.message = 'Usuario ou senha invalida' + error
-          this.snackbar.show = true
         })
         .finally(() => {
           this.loading = false

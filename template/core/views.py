@@ -42,9 +42,10 @@ def whoami(request):
     return JsonResponse(i_am)
 
 
+@csrf_exempt
 @ajax_login_required
 def add_todo(request):
-    todo = todo_svc.add_todo(request.POST['new_task'])
+    todo = todo_svc.add_todo(request.POST['description'])
     return JsonResponse(todo)
 
 
