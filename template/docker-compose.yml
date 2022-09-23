@@ -10,8 +10,8 @@ services:
     env_file:
       - .env
     network_mode: "host"
-    command: ./docker/bin/start_dev.sh
-    # command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: wait-for-it $POSTGRES_HOST:$POSTGRES_PORT -- bash -c "python manage.py migrate && python manage.py runserver"
+    # command: ./docker/bin/start_dev.sh
     # command: bash -c "sleep infinity"
     expose:
       - "8000"
