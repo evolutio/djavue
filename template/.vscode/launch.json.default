@@ -2,20 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Django runserver",
+      "name": "🐞Pytest",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "justMyCode": true
+    },
+    {
+      "name": "🐍Django",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/manage.py",
       "args": [
-        "runserver",
-        "0.0.0.0:8000"
+        "runserver"
       ],
-      "env": {
-        "DJANGO_SETTINGS_MODULE": "{{ name }}.settings"
-      },
-      "python": "/usr/local/bin/python",
       "django": true,
       "justMyCode": true
-    }
+    },
   ]
 }
