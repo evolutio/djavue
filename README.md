@@ -18,19 +18,25 @@ Vc tb pode comprar o curso completo\* sobre o djavue e aprender uma PORRADA de c
 
 \* O curso do djavue está em construção. Comprando agora vc paga mais barato e continua tendo acesso ao conteúdo que ainda vai ser produzido ;-)
 
+### Requisitos
+
+- Node 14 instalado, digite `node -v` para ver se tem o node instalado...
+- Docker instalado
+
 ### Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ```bash
+# Digite o comando abaixo, caso ainda não tenha o comando vue
 $ npm install -g @vue/cli
-$ # vue init evolutio/djavue myproject
-$ vue init huogerac/djavue mytodolist
+# Para criar o novo projeto, pode mudar de mytodolist o nom que quiser
+$ vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
 $ cd mytodolist
+# Para criar os containers
 $ docker-compose build
+# Para iniciar os containers
 $ docker-compose up -d
-$ docker-compose exec django_api ./manage.py loaddata docker/fixtures/todolist.json
-$ docker-compose logs -f django_api
 ```
 
 🚀 Access the `http://localhost`, `http://localhost/api` or `http://localhost/admin`
