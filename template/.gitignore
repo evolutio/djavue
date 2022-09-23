@@ -6,4 +6,3 @@ coverage.xml
 htmlcov/
 .idea
 /{{name}}.log
-/static

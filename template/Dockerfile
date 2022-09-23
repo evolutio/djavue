@@ -21,6 +21,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     echo "alias ll='ls \$LS_OPTIONS -l'" >>~/.bashrc && \
     echo "alias l='ls \$LS_OPTIONS -lA'" >>~/.bashrc
 
+# Install Node 14 e NPM
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g pm2@5.2.0
+
 RUN mkdir /dkdata
 
 #### Prepare BACKEND Django API
@@ -31,6 +36,19 @@ RUN pip install -r requirements.txt
 ENV PYTHONUNBUFFERED=1 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONIOENCODING=UTF-8
+
+#### Prepare Frontend Vuejs + Nuxt App
+
+COPY ./frontend/package.json ./frontend/package-lock.json ./frontend/
+
+RUN cd frontend && npm install \
+    && npm cache clean --force \
+    && npm cache verify
+
+COPY ./frontend ./frontend
+
+RUN cd frontend && npm run build
+
 ENV SHELL=/bin/bash LANG=en_US.UTF-8
 
 COPY . ./

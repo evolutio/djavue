@@ -1,4 +1,4 @@
-version: "3"
+version: "2.4"
 
 services:
   postgres_local:
@@ -10,52 +10,31 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  backend:
-    image: back-{{ name }}
-    hostname: back-{{ name }}
+  django_api:
+    image: {{ name }}
+    network_mode: "host"
     build:
       context: ./
       dockerfile: Dockerfile
     env_file:
       - .env
-    network_mode: "host"
-    command: wait-for-it $POSTGRES_HOST:$POSTGRES_PORT -- bash -c "python manage.py migrate && python manage.py runserver"
     # environment:
     #   - POSTGRES_HOST=postgres_local
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
+      - "3000"
     volumes:
       - ./:/app
+      - /app/frontend/node_modules
     tty: true
     depends_on:
       - postgres_local
-
-  frontend:
-    build:
-      context: ./frontend
-      args:
-        NUXT_PUBLIC_PATH: http://localhost/static/
-    image: front-{{ name }}
-    container_name: front-{{ name }}
-    hostname: front-{{ name }}
-    command: npm run dev
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env
-    volumes:
-      - /frontend/node_modules
-      - ./frontend:/frontend
-    depends_on:
-      - backend
 
   nginx:
     image: nginx
     network_mode: "host"
     volumes:
       - ./docker/nginx/default_local:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - frontend
 
 volumes:
   postgres_data:
