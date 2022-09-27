@@ -12,9 +12,11 @@ services:
     image: apimock-{{ name }}
     container_name: apimock-{{ name }}
     hostname: apimock-{{ name }}
-    command: npm run apimock
+    command: npm run apimock:watch
     network_mode: "host"
     expose:
       - "8000"
     env_file:
       - .env
+    volumes:
+      - ./apimock/server:/apimock/server

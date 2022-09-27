@@ -8,8 +8,7 @@ RUN apt-get update \
   && npm install -g pm2@5.2.0
 
 #### Prepare API MOCK using NODEJS express
-
-COPY ./package.json ./
+COPY ./package.json package-lock.json ./
 
 RUN npm install \
   && npm cache clean --force \
