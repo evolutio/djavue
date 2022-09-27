@@ -14,7 +14,7 @@ export default {
         })
     })
   },
-  addNeTask: (description) => {
+  addNewTask: (description) => {
     return new Promise((resolve, reject) => {
       api
         .post('/api/add_todo', apiHelpers.dataToForm({ description }))

@@ -17,7 +17,7 @@
             required
             outlined
             append-icon="fa-pen"
-            @keyup.enter="addNeTask"
+            @keyup.enter="addNewTask"
           />
         </v-card-text>
       </v-card>
@@ -30,7 +30,7 @@
           <p class="ma-0 pa-0 text-h5 text--primary">
             {{ item.description }}
           </p>
-          <v-switch v-model="item.done" :loading="item.done" />
+          <v-switch v-model="item.done" />
         </v-card-text>
       </v-card>
     </v-col>
@@ -59,12 +59,12 @@ export default {
         this.loading = false
       })
     },
-    addNeTask() {
+    addNewTask() {
       this.loading = true
-      TasksApi.addNeTask(this.newtask).then((data) => {
-        console.log(data)
+      TasksApi.addNewTask(this.newtask).then((data) => {
         this.getTasks()
         this.loading = false
+        this.newtask = ''
       })
     },
   },

@@ -13,5 +13,17 @@ export default {
           return reject(error)
         })
     })
+  },
+  logout: () => {
+    return new Promise((resolve, reject) => {
+      api
+        .post('/api/logout')
+        .then((response) => {
+          return resolve(response.data)
+        })
+        .catch((error) => {
+          return reject(error)
+        })
+    })
   }
 }

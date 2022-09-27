@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+  frontend:
+    depends_on:
+      - apimock
+
+  apimock:
+    build:
+      context: ./apimock
+    image: apimock-{{ name }}
+    container_name: apimock-{{ name }}
+    hostname: apimock-{{ name }}
+    command: npm run apimock
+    network_mode: "host"
+    expose:
+      - "8000"
+    env_file:
+      - .env

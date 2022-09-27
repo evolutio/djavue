@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   backend:
     image: back-{{ name }}
     hostname: back-{{ name }}
@@ -49,8 +50,6 @@ services:
     volumes:
       - /frontend/node_modules
       - ./frontend:/frontend
-    depends_on:
-      - backend
 
   nginx:
     image: nginx

@@ -22,6 +22,48 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item
+          v-if="loggedUser"
+          :to="'/tasks/list'"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>mdi-apps</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="'Tasks List'" />
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          v-if="loggedUser"
+          :to="'/auth/logout'"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>mdi-apps</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="'Logout'" />
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          v-else
+          :to="'/auth/login'"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>mdi-apps</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="'Login'" />
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -60,7 +102,7 @@
       :absolute="!fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span> &copy; {{ new Date().getFullYear() }} </span><span class="pl-4" v-if="loggedUser"><v-icon>mdi-account</v-icon> {{ loggedUser.user.username }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -73,32 +115,30 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Bem-vindo',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Início',
-          to: '/inicio'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Login',
-          to: '/auth/login'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Tasks List',
-          to: '/tasks/list'
-        }
-      ],
+      items: [],
       miniVariant: false,
       right: true,
-      title: 'Vuetify.js'
+      title: 'Djàvue {{ name }}'
     }
+  },
+  computed: {
+    loggedUser() {
+      return this.$store.getters.loggedUser
+    }
+  },
+  mounted() {
+    this.items = [
+      {
+        icon: 'mdi-apps',
+        title: 'Bem-vindo',
+        to: '/'
+      },
+      {
+        icon: 'mdi-chart-bubble',
+        title: 'Início',
+        to: '/inicio'
+      },
+    ]
   }
 }
 </script>
