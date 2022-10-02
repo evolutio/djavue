@@ -6,6 +6,3 @@ ci/
 .dockerignore
 .gitignore
 .gitlab-ci.yml
-.coverage
-coverage.xml
-htmlcov/

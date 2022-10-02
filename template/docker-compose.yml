@@ -1,0 +1,63 @@
+version: "3"
+
+services:
+
+  backend:
+    image: back-{{ name }}
+    hostname: back-{{ name }}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    network_mode: "host"
+    command: wait-for-it $POSTGRES_HOST:$POSTGRES_PORT -- bash -c "python manage.py migrate && python manage.py runserver"
+    # command: ./docker/bin/start_dev.sh
+    # command: bash -c "sleep infinity"
+    expose:
+      - "8000"
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: "postgres:13.3-alpine"
+    ports:
+      - 15432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    restart:
+      on-failure
+      #- "./docker/postgres/pg_hba.conf:/usr/local/etc/postgres/postgres.conf"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NUXT_PUBLIC_PATH: http://localhost/static/
+    image: front-{{ name }}
+    container_name: front-{{ name }}
+    hostname: front-{{ name }}
+    command: npm run dev
+    network_mode: "host"
+    expose:
+      - "3000"
+    env_file:
+      - .env
+    volumes:
+      - /frontend/node_modules
+      - ./frontend:/frontend
+
+  nginx:
+    image: nginx
+    network_mode: "host"
+    volumes:
+      - ./docker/nginx/default_local:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+
+volumes:
+  postgres_data:

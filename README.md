@@ -14,20 +14,46 @@ It helps me (and it may help you) start new projects that already have a useful 
 
 Veja o video explicando mais sobre este template ;) --> https://youtu.be/It8Zx0cJYyg
 
-Vc tb pode comprar o curso completo* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
+Vc tb pode comprar o curso completo\* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
 
 \* O curso do djavue está em construção. Comprando agora vc paga mais barato e continua tendo acesso ao conteúdo que ainda vai ser produzido ;-)
+
+### Requisitos
+
+- Node 14 instalado, digite `node -v` para ver se tem o node instalado...
+- Docker instalado
 
 ### Usage
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
-``` bash
-$ npm install -g vue-cli
-$ vue init evolutio/djavue myproject
+```bash
+# Digite o comando abaixo, caso ainda não tenha o comando vue
+$ npm install -g @vue/cli
+# Para criar o novo projeto, pode mudar de mytodolist o nom que quiser
+$ vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
+$ cd mytodolist
+# Para criar os containers
+$ docker-compose build
+# Para iniciar os containers
+$ docker-compose up -d
 ```
 
-For initial setup, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
+🚀 Access the `http://localhost`, `http://localhost/api` or `http://localhost/admin`
+
+For more setup information, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
+
+### API MOCK (Using JS to mock the Django Backend)
+
+Rather than run Django, Postgres sometimes we need to focus on the Frontend only, so we can 
+use a backendless approach using mock api. To run this way, use the following commands: 
+
+```bash
+
+$ docker-compose build
+$ docker-compose -f docker-compose.yml -f docker-compose.apimock.yml up --scale postgres=0 --scale backend=0
+
+```
 
 ### What's Included
 
@@ -80,7 +106,6 @@ This project will come with a `.gitlab-ci.yml` file. If you host your code in a 
 
 #### 4. TDD is the fastest way
 
-When you have a mockapi, that code is not just junk that you don't need. On the contrary. It contains a **valuable, unambiguous specification of how your backend must behave**. At that point, the fastest way to build your backend is to look at your mock apis as an orienting guide for test cases. 
+When you have a mockapi, that code is not just junk that you don't need. On the contrary. It contains a **valuable, unambiguous specification of how your backend must behave**. At that point, the fastest way to build your backend is to look at your mock apis as an orienting guide for test cases.
 
 Look at mock apis --> write tests --> implement the backend --> repeat
-

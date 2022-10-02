@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ActivityLog',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.CharField(max_length=64)),
                 ('jsondata', models.TextField(blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='criado em')),
