@@ -124,7 +124,7 @@ export default {
     }
   },
   computed: {
-    loggedUser() {
+    loggedUser () {
       return this.$store.getters.loggedUser
     }
   },
