@@ -14,7 +14,13 @@
           </small>
         </footer>
       </blockquote>
-      <v-btn x-large rounded color="primary" dark :to="{ name: 'auth-login' }">
+      <v-btn
+        x-large
+        rounded
+        color="primary"
+        dark
+        :to="{ name: 'auth-login' }"
+      >
         Iniciar
       </v-btn>
     </v-col>

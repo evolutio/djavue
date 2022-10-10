@@ -102,7 +102,10 @@
       :absolute="!fixed"
       app
     >
-      <span> &copy; {{ new Date().getFullYear() }} </span><span class="pl-4" v-if="loggedUser"><v-icon>mdi-account</v-icon> {{ loggedUser.user.username }}</span>
+      <span> &copy; {{ new Date().getFullYear() }} </span><span
+        v-if="loggedUser"
+        class="pl-4"
+      ><v-icon>mdi-account</v-icon> {{ loggedUser.user.username }}</span>
     </v-footer>
   </v-app>
 </template>
@@ -117,8 +120,7 @@ export default {
       fixed: false,
       items: [],
       miniVariant: false,
-      right: true,
-      title: 'Djàvue {{ name }}'
+      title: 'Djàvue'
     }
   },
   computed: {
@@ -126,7 +128,7 @@ export default {
       return this.$store.getters.loggedUser
     }
   },
-  mounted() {
+  mounted () {
     this.items = [
       {
         icon: 'mdi-apps',
@@ -137,7 +139,7 @@ export default {
         icon: 'mdi-chart-bubble',
         title: 'Início',
         to: '/inicio'
-      },
+      }
     ]
   }
 }

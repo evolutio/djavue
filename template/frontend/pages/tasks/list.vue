@@ -1,5 +1,8 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row
+    justify="center"
+    align="center"
+  >
     <v-col cols="12">
       <v-card>
         <v-card-title class="headline">
@@ -23,7 +26,11 @@
       </v-card>
     </v-col>
 
-    <v-col v-for="item in items" :key="item.id" cols="12">
+    <v-col
+      v-for="item in items"
+      :key="item.id"
+      cols="12"
+    >
       <v-card>
         <v-card-text>
           <div>#{{ item.id }}</div>
@@ -45,28 +52,27 @@ export default {
   data () {
     return {
       newtask: '',
-      adding: false,
       loading: false,
       items: [
       ]
     }
   },
   methods: {
-    getTasks() {
+    getTasks () {
       this.loading = true
       TasksApi.getTasks().then((data) => {
         this.items = data.todos
         this.loading = false
       })
     },
-    addNewTask() {
+    addNewTask () {
       this.loading = true
       TasksApi.addNewTask(this.newtask).then((data) => {
         this.getTasks()
         this.loading = false
         this.newtask = ''
       })
-    },
+    }
   },
   mounted () {
     this.getTasks()

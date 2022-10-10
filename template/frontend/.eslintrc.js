@@ -17,6 +17,8 @@ module.exports = {
   rules: {
     'no-debugger': 0,
     camelcase: 0,
+    indent: ['error', 2],
+    'space-before-function-paren': ['error', 'always'],
     'require-await': 'error',
     'vue/no-unused-properties': ['error', {
       groups: ['props', 'data', 'computed', 'methods'],

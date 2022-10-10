@@ -1,6 +1,13 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
+  <v-row
+    justify="center"
+    align="center"
+  >
+    <v-col
+      cols="12"
+      sm="8"
+      md="6"
+    >
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
         <VuetifyLogo />
@@ -12,7 +19,8 @@
         <v-card-text>
           <p>Djávue tem Vuetify + Nuxt.js no frontend e Django no Backend, tudo já configurado e pronto para uso em Produção.</p>
           <p>
-            Links úteis:</p>
+            Links úteis:
+          </p>
           <p>
             <ul>
               <li>

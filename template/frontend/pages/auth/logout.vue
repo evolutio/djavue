@@ -1,7 +1,13 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-
+  <v-row
+    justify="center"
+    align="center"
+  >
+    <v-col
+      cols="12"
+      sm="8"
+      md="6"
+    >
       <v-card>
         <v-card-title class="headline">
           Bye Bye
@@ -33,7 +39,7 @@ export default {
   name: 'LogoutPage',
   data: () => {
     return {
-      loading: false,
+      loading: false
     }
   },
   methods: {
@@ -47,7 +53,7 @@ export default {
         .finally(() => {
           this.loading = false
         })
-    },
+    }
   }
 }
 </script>
