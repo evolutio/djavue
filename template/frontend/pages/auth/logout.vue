@@ -47,7 +47,7 @@ export default {
       this.loading = true
       AuthApi.logout()
         .then((user) => {
-          this.$store.commit('SET_LOGGED_USER', null)
+          this.$store.commit('login/SET_LOGGED_USER', null)
           this.$router.push('/')
         })
         .finally(() => {

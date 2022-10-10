@@ -104,7 +104,7 @@ export default {
     saveLoggedUser (user) {
       this.error = !user
       if (user) {
-        this.$store.commit('SET_LOGGED_USER', user)
+        this.$store.commit('login/SET_LOGGED_USER', user)
         this.visible = false
         console.log('logged')
       }

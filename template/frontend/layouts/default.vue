@@ -111,6 +111,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'DefaultLayout',
   data () {
@@ -124,9 +126,9 @@ export default {
     }
   },
   computed: {
-    loggedUser () {
-      return this.$store.getters.loggedUser
-    }
+    ...mapState({
+      loggedUser: state => state.login.loggedUser
+    })
   },
   mounted () {
     this.items = [
