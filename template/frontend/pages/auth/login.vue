@@ -1,9 +1,18 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-
-      <v-snackbar v-model="snackbar.show" color="red accent-2">
-        {{snackbar.message}}
+  <v-row
+    justify="center"
+    align="center"
+  >
+    <v-col
+      cols="12"
+      sm="8"
+      md="6"
+    >
+      <v-snackbar
+        v-model="snackbar.show"
+        color="red accent-2"
+      >
+        {{ snackbar.message }}
       </v-snackbar>
 
       <v-card class="logo py-4 d-flex justify-center">
@@ -95,7 +104,7 @@ export default {
     saveLoggedUser (user) {
       this.error = !user
       if (user) {
-        this.$store.commit('SET_LOGGED_USER', user)
+        this.$store.commit('login/SET_LOGGED_USER', user)
         this.visible = false
         console.log('logged')
       }
