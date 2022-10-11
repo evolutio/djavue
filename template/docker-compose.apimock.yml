@@ -5,6 +5,7 @@ services:
   frontend:
     depends_on:
       - apimock
+      - nginx
 
   apimock:
     build:
