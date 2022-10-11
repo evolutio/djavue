@@ -1,47 +1,137 @@
 # d-jà vue
 
-Being a web-developer for 18 years, I have found that by doing things in a certain way, there will be a higher chance that:
+Um template de projeto completo **full-stack**, **pronto para produção**, com boas práticas e focado na produtividade. Combina um frontend (Vue|Nuxt.JS|Vuetify) e Backend Python (Django API)
 
-- I and other team members will be more productive
-- clients will be happier
-- the final product will have higher quality and be easier to change
+## Por que?
 
-This is a vue-cli template for a **full-stack**, **production-ready** web application using Django and Vue.js.
+Com mais de 20 anos trabalhando como web-developer, eu [Tony Lâmpada](https://github.com/tonylampada) descobri que fazendo do jeito certo, podemos ter muito mais chances de:
 
-It helps me (and it may help you) start new projects that already have a useful set of good practices built into them.
+- Todos do time e eu conseguir ser mais produtivos com entregas mais rápidas focando no negócio
+- Clientes mais felizes
+- Produto final com mais qualidade e fácil de mudar
 
-### Você fala português?
+## Requisitos
 
-Veja o video explicando mais sobre este template ;) --> https://youtu.be/It8Zx0cJYyg
+- Node 14 instalado (digite `node -v` para ver a versão) e conseguir rodar o [vue-cli](https://cli.vuejs.org/)
+- Docker & Docker compose instalados para subir tudo muito rápido e não precisar mudar infinitas configurações diretamente na sua máquina
 
-Vc tb pode comprar o curso completo\* sobre o djavue e aprender uma PORRADA de coisa sobre desenvolvimento web --> https://evolutio.io/curso/djavue
+## Começando
 
-\* O curso do djavue está em construção. Comprando agora vc paga mais barato e continua tendo acesso ao conteúdo que ainda vai ser produzido ;-)
+Este é um template de projetos [Vue](https://cli.vuejs.org/guide/creating-a-project.html) que precisa do [vue-cli](https://cli.vuejs.org/).
 
-### Requisitos
+Neste exemplo, vamos criar o projeto `mytodolist`, mas você pode trocar este nome para qual faz mais sentido para seu produto!
 
-- Node 14 instalado, digite `node -v` para ver se tem o node instalado...
-- Docker instalado
+### Primeiro passo
 
-### Usage
-
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+Vamos precisar criar o projeto e fazer o build de tudo, utilize os comandos abaixo:
 
 ```bash
 # Digite o comando abaixo, caso ainda não tenha o comando vue
 $ npm install -g @vue/cli
-# Para criar o novo projeto, pode mudar de mytodolist o nom que quiser
+# Crie o novo projeto usando o vue init
 $ vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
 $ cd mytodolist
 # Para criar os containers
 $ docker-compose build
 # Para iniciar os containers
-$ docker-compose up -d
+$ docker-compose up -d backend frontend
 ```
 
-🚀 Access the `http://localhost`, `http://localhost/api` or `http://localhost/admin`
+Depois de fazer o build e iniciar todos containers, fazendo um `docker ps` é possível ver que temos os seguintes serviços rodando:
 
-For more setup information, follow the README.md that was generated inside your `myproject` folder (which looks a lot like [this one](template/README.md))
+```
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                 NAMES
+a72fb2ab3ba2   back-todoten           "wait-for-it localho…"  mytodolist_backend_1
+6ef83aab15e5   front-todoten          "docker-entrypoint.s…"  mytodolist_frontend_1
+6def45b54094   nginx                  "/docker-entrypoint.…"  mytodolist_nginx_1
+93e76c660729   postgres:13.3-alpine   "docker-entrypoint.s…"  mytodolist_postgres_1
+
+```
+
+E estes containers estão organizados como no diagrama abaixo:
+
+![djavue-containers](./images/djavue-containers.png)
+
+
+🚀 Para acessar os serviços, utilize as URLs abaixo:
+- `http://localhost` para acessar o frontend
+- `http://localhost/api` para acessar diretamente alguma rota da API
+- `http://localhost/admin` para acessar o Django admin
+
+📝 NOTA: Embora o frontend está em `http://localhost:3000`, não faz muito sentido acessar esta URL diretamente. Utilize `http://localhost` para acessar o front, desta forma o NGINX vai intermediar e saber redirecionar requisições feitas pelo frontend para `http://localhost/api`, ou seja, acessando com a porta 3000, as requisições /api não funcionam.
+
+Para conseguir logar, vamos precisar criar um usuário no Django. Podemos fazer isto entrando no container backend e rodar o comando do Django `./manage.py createsuperuser` para criar um usuário:
+
+```
+$ docker-compose exec backend ./manage.py createsuperuser
+
+Usuário (leave blank to use 'root'): admin
+Endereço de email: admin@example.com
+Password:
+Password (again):
+Superuser created successfully.
+
+```
+
+📝 NOTA: Também podemos acessar diretamente o container do backend usando `docker exec -it mytodolist_backend_1 bash` e ai digitar o comando que quisermos, mas temos que ter atenção que o prefixo do nome do container muda conforme o nome dado na criação do projeto.
+
+### Passo 2
+
+Para preparar o ambiente para que seja possível evoluir o frontend, dado que algumas pastas foram geradas pelo processo de build do docker, vamos precisar fazer alguns ajustes:
+
+```
+# Mudar o dono da pasta de root para o seu usuário
+$ sudo chown 1000:1000 -Rf frontend/
+$ cd frontend
+$ npm install
+
+# Para garantir que tudo está funcionando, o comando abaixo tem que rodar sem dar erro:
+$ npm run lint
+  > frontend@1.0.0 lint /home/user1/workspace/mytodolist/frontend
+  > npm run lint:js
+  > frontend@1.0.0 lint:js /home/user1/workspace/mytodolist/frontend
+  > eslint --ext ".js,.vue" --ignore-path .gitignore .
+
+```
+
+Se conseguiu ver a saída acima, tudo esta funcionando!
+
+Para parar todos os containers, utilize o comando abaixo:
+
+```
+$ docker-compose down
+  Stopping mytodolist_backend_1  ... done
+  Stopping mytodolist_frontend_1 ... done
+  Stopping mytodolist_nginx_1    ... done
+  Stopping mytodolist_postgres_1 ... done
+```
+
+📝 NOTA: Utilize o comando `docker ps` e garanta que nenhum container está rodando
+
+
+Para mais informações, siga o [README.md](template/README.md) que foi gerado dentro do seu projeto `mytodolist`
+
+## Subindo apenas o frontend (Backendless)
+
+Para algumas demandas de trabalho, faz sentido alterar primeiro o frontend, e assim não faz sentido subir
+o backend com banco de dados. No Djàvue temos o conceito de API MOCK. ou seja, subir apenas o front com um imitador de backend (mock). Em ouras palavras, subir apenas código JavaScript e nada de Python ou qualquer outra tecnologia.
+
+Para isto, ao invés de utilizar o docker-compose up apresentado no início, vamos utilizar uma variação:
+
+```bash
+
+$ docker-compose -f docker-compose.yml -f docker-compose.apimock.yml up frontend
+
+```
+
+🚀 Para acessar os serviços, utilize as URLs abaixo:
+
+- `http://localhost` para acessar o frontend
+- `http://localhost/api` para acessar diretamente alguma rota da API MOCK
+
+📝 NOTA: Rode um `docker ps` e veja que temos rodando um imitador de backend (que está na pasta `apimock`) em código NodeJS.
+
 
 ### What's Included
 
