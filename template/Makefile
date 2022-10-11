@@ -71,7 +71,7 @@ install: system-packages python-packages    ## Install all dependencies
 
 .PHONY: apimock
 apimock:                ## Run Postgres for testing (using docker)
-	@docker-compose -f docker-compose.yml -f docker-compose.apimock.yml up --scale postgres=0 --scale backend=0
+	@docker-compose -f docker-compose.yml -f docker-compose.apimock.yml up nginx
 
 
 .PHONY: db-test-down
