@@ -1,22 +1,61 @@
 from core.models import User
-from django.test.client import Client
-from django.test.testcases import TestCase
 from core.tests import fixtures
-import json
 
 
-class TestAuthApi(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        fixtures.user_jon()
+def test_deve_retornar_usuario_nao_logado(client):
+    resp = client.get('/api/whoami')
 
-    def test_auth_api(self):
-        client = Client()
-        r1 = client.get('/api/whoami')
-        client.force_login(User.objects.get(username='jon'))
-        r2 = client.post('/api/login', {'username': 'jon', 'password': 'snow'})
-        r3 = client.get('/api/whoami')
-        r4 = client.post('/api/logout')
-        r5 = client.get('/api/whoami')
-        self.assertEqual(200, r1.status_code)
-        info = json.loads(r1.content.decode('utf-8'))
+    assert resp.status_code == 200
+    assert resp.json() == {'authenticated': False}
+
+
+def test_deve_retornar_usuario_logado(client, db):
+    fixtures.user_jon()
+
+    client.force_login(User.objects.get(username='jon'))
+    resp = client.get('/api/whoami')
+
+    data = resp.json()
+    assert resp.status_code == 200
+    assert data == {
+        'user': {
+            'id': 1, 'name': 'Jon Snow', 'username': 'jon', 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon@example.com',
+            'permissions': {
+                'ADMIN': False, 'STAFF': False
+            }
+        }, 'authenticated': True
+    }
+
+
+def test_deve_fazer_login(client, db):
+    fixtures.user_jon()
+    resp = client.post('/api/login', {'username': 'jon', 'password': 'snow'})
+    login = resp.json()
+
+    resp = client.get('/api/whoami')
+    data = resp.json()
+
+    assert login['email'] == 'jon@example.com'
+    assert resp.status_code == 200
+    assert data == {
+        'user': {
+            'id': 2, 'name': 'Jon Snow', 'username': 'jon', 'first_name': 'Jon', 'last_name': 'Snow', 'email': 'jon@example.com',
+            'permissions': {
+                'ADMIN': False, 'STAFF': False
+            }
+        },
+        'authenticated': True
+    }
+
+def test_deve_fazer_login(client, db):
+    fixtures.user_jon()
+    client.force_login(User.objects.get(username='jon'))
+    resp = client.post('/api/logout')
+
+    assert resp.status_code == 200
+    assert not resp.json()
+
+
+def test_deve_fazer_logout_mesmo_sem_login(client, db):
+    resp = client.post('/api/logout')
+    assert resp.status_code == 200

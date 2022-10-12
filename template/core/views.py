@@ -1,8 +1,7 @@
 # coding: utf-8
 import json
-from django.http.response import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import auth
-from commons.django_model_utils import get_or_none
 from commons.django_views_utils import ajax_login_required
 from core.service import log_svc, todo_svc
 from django.views.decorators.csrf import csrf_exempt
@@ -29,7 +28,7 @@ def login(request):
 def logout(request):
     if request.method.lower() != 'post':
         raise Exception('Logout only via post')
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         log_svc.log_logout(request.user)
     auth.logout(request)
     return HttpResponse('{}', content_type='application/json')
@@ -39,13 +38,14 @@ def whoami(request):
     i_am = {
         'user': _user2dict(request.user),
         'authenticated': True,
-    } if request.user.is_authenticated() else {'authenticated': False}
+    } if request.user.is_authenticated else {'authenticated': False}
     return JsonResponse(i_am)
 
 
+@csrf_exempt
 @ajax_login_required
 def add_todo(request):
-    todo = todo_svc.add_todo(request.POST['new_task'])
+    todo = todo_svc.add_todo(request.POST['description'])
     return JsonResponse(todo)
 
 
