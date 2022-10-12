@@ -23,6 +23,8 @@ Com mais de 20 anos trabalhando como web-developer, eu [Tony Lâmpada](https://g
 - FRONTEND: [Vue 2](https://v2.vuejs.org/), [Vuetify](https://vuetifyjs.com/en/getting-started/quick-start) e [Nuxt](https://nuxtjs.org/) (usando vue cli) separado do backend
 - FRONTEND: Modo sem backend usando [mock-apis](https://medium.com/@tonylampada/javascript-mock-api-why-you-might-want-to-have-one-232b3ba46b12) para promover a validação rápida de ideias
 
+![djavue-página-inicial](./images/djavue-pag-inicial.png)
+
 ## Requisitos
 
 - Node 14 instalado (digite `node -v` para ver a versão) e conseguir rodar o [vue-cli](https://cli.vuejs.org/)
