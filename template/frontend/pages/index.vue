@@ -25,15 +25,6 @@
             <ul>
               <li>
                 <a
-                  href="https://github.com/huogerac/djavue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Repo deste template
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://github.com/evolutio/djavue/"
                   target="_blank"
                   rel="noopener noreferrer"

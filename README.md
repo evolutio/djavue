@@ -44,7 +44,7 @@ Vamos precisar criar o projeto e fazer o build de tudo, utilize os comandos abai
 # Digite o comando abaixo, caso ainda não tenha o comando vue
 $ npm install -g @vue/cli
 # Crie o novo projeto usando o vue init
-$ vue init huogerac/djavue mytodolist  # vue init evolutio/djavue myproject
+$ vue init evolutio/djavue mytodolist
 $ cd mytodolist
 # Para criar os containers
 $ docker-compose build
@@ -162,7 +162,7 @@ A melhor forma para promover uma mudança é criando uma [Issue aqui](https://gi
 
 ## CHANGELOG
 
-### 2022-10-12 - v.2.0.0 - Atualizado para versões mais recentes do Django e Djavue
+### 2022-10-12 - v.2.0.0 - Atualizado para versões mais recentes do Django e VueJS
 
 - Atualizado de Django 1.11 para 4.0
 - Atualizado de Vuejs, vuetity e nuxt 1.0 para 2.6, Node 9 para 14
