@@ -21,46 +21,44 @@
           <p>
             Links úteis:
           </p>
-          <p>
-            <ul>
-              <li>
-                <a
-                  href="https://github.com/huogerac/djavue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Repo deste template
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/evolutio/djavue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Repo oficial djàvue template
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://vuetifyjs.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Vuetify
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://nuxtjs.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Nuxt.js
-                </a>
-              </li>
-            </ul>
-          </p>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/huogerac/djavue/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Repo deste template
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/evolutio/djavue/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Repo oficial djàvue template
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://vuetifyjs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Vuetify
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nuxtjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Nuxt.js
+              </a>
+            </li>
+          </ul>
           <p>
             Achou um problema? Cadastre uma <a
               href="https://github.com/huogerac/djavue/issues"
