@@ -1,4 +1,4 @@
-from core.models import User
+from {{name}}.core.models import User
 
 
 def user_jon():

@@ -1,5 +1,6 @@
-from core.models import ActivityLog
+from ..models import ActivityLog
 import json
+
 
 def log_login(user):
     logs = ActivityLog(

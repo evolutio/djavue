@@ -1,10 +1,12 @@
 # coding: utf-8
 import json
+
 from django.http import HttpResponse, JsonResponse
 from django.contrib import auth
-from commons.django_views_utils import ajax_login_required
-from core.service import log_svc, todo_svc
 from django.views.decorators.csrf import csrf_exempt
+
+from ..commons.django_views_utils import ajax_login_required
+from .service import log_svc, todo_svc
 
 
 def dapau(request):

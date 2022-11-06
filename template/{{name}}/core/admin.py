@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import ActivityLog, Todo
+from .models import ActivityLog, Todo
 
 
 class ActivityLogAdmin(admin.ModelAdmin):
