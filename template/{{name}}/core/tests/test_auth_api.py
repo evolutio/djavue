@@ -1,5 +1,5 @@
-from core.models import User
-from core.tests import fixtures
+from {{name}}.core.models import User
+from . import fixtures
 
 
 def test_deve_retornar_usuario_nao_logado(client):

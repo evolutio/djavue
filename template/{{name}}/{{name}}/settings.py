@@ -51,7 +51,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'core',
+    '{{name}}.core',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '{{name}}.urls'
+ROOT_URLCONF = '{{name}}.{{name}}.urls'
 
 TEMPLATES = [
     {
@@ -84,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '{{name}}.wsgi.application'
+WSGI_APPLICATION = '{{name}}.{{name}}.wsgi.application'
 
 
 # Database

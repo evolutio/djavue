@@ -1,4 +1,5 @@
-from core.models import Todo
+from ..models import Todo
+
 
 def add_todo(new_task):
     todo = Todo(description=new_task)

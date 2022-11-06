@@ -1,5 +1,5 @@
-from core.models import User, Todo
-from core.tests import fixtures
+from {{name}}.core.models import User, Todo
+from . import fixtures
 
 
 def test_criar_tarefa_sem_login(client):
