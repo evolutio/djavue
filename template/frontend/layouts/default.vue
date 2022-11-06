@@ -105,7 +105,7 @@
       <span> &copy; {{ new Date().getFullYear() }} </span><span
         v-if="loggedUser"
         class="pl-4"
-      ><v-icon>mdi-account</v-icon> {{ loggedUser.user.username }}</span>
+      ><v-icon>mdi-account</v-icon> {{ loggedUser.username }}</span>
     </v-footer>
   </v-app>
 </template>
