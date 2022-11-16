@@ -18,7 +18,7 @@
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
       </v-card>
-      <v-card>
+      <v-card v-if="!loggedUser">
         <v-card-title class="headline">
           Login
         </v-card-title>
@@ -61,11 +61,30 @@
           </p>
         </v-card-text>
       </v-card>
+      <v-card v-else>
+        <v-card-title class="headline">
+          You're already logged in.
+        </v-card-title>
+        <v-card-text>
+          <v-btn
+            color="primary"
+            class="mr-4"
+            x-large
+            block
+            @click="showTasks"
+          >
+            Check my tasks <v-icon class="pl-3">
+              fa-arrow-right
+            </v-icon>
+          </v-btn>
+        </v-card-text>
+      </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import AuthApi from '@/api/auth.api.js'
 
 export default {
@@ -84,6 +103,11 @@ export default {
       visible: false
     }
   },
+  computed: {
+    ...mapState({
+      loggedUser: state => state.login.loggedUser
+    })
+  },
   methods: {
     login () {
       this.loading = true
@@ -95,7 +119,7 @@ export default {
             return
           }
           this.saveLoggedUser(user)
-          this.$router.push('/tasks/list')
+          this.showTasks()
         })
         .finally(() => {
           this.loading = false
@@ -108,7 +132,17 @@ export default {
         this.visible = false
         console.log('logged')
       }
+    },
+    showTasks () {
+      this.$router.push('/tasks/list')
     }
+  },
+  mounted () {
+    AuthApi.whoami().then((response) => {
+      if (response.authenticated) {
+        this.saveLoggedUser(response.user)
+      }
+    })
   }
 }
 </script>
