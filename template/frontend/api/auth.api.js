@@ -4,7 +4,7 @@ import apiHelpers from './helpers.js'
 export default {
   whoami: () => {
     return new Promise((resolve, reject) => {
-      api.get('/api/whoami').then((response) => {
+      api.get('/api/accounts/whoami').then((response) => {
         return resolve(response.data)
       })
     })
@@ -12,7 +12,7 @@ export default {
   login: (username, password) => {
     return new Promise((resolve, reject) => {
       api
-        .post('/api/login', apiHelpers.dataToForm({ username, password }))
+        .post('/api/accounts/login', apiHelpers.dataToForm({ username, password }))
         .then((response) => {
           return resolve(response.data)
         })
@@ -24,7 +24,7 @@ export default {
   logout: () => {
     return new Promise((resolve, reject) => {
       api
-        .post('/api/logout')
+        .post('/api/accounts/logout')
         .then((response) => {
           return resolve(response.data)
         })
