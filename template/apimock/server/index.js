@@ -29,9 +29,9 @@ app.get("dapau", core.dapau);
 // ap.get("status", core.dapau);
 
 // ACCOUNTS
-app.post("/api/login", accounts.login);
-app.post("/api/logout", accounts.logout);
-app.get("/api/whoami", accounts.whoami);
+app.post("/api/accounts/login", accounts.login);
+app.post("/api/accounts/logout", accounts.logout);
+app.get("/api/accounts/whoami", accounts.whoami);
 
 // TASKS
 app.get("/api/list_todos", tasks.find);
