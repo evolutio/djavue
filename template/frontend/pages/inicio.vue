@@ -19,9 +19,27 @@
         rounded
         color="primary"
         dark
-        :to="{ name: 'auth-login' }"
+        :to="{ name: 'accounts-login' }"
       >
-        Iniciar
+        Login
+      </v-btn>
+      <v-btn
+        x-large
+        rounded
+        color="primary"
+        dark
+        :to="{ name: 'tasks-list' }"
+      >
+        Tasks
+      </v-btn>
+      <v-btn
+        x-large
+        rounded
+        color="primary"
+        dark
+        :to="{ name: 'index' }"
+      >
+        Voltar
       </v-btn>
     </v-col>
   </v-row>

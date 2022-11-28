@@ -12,11 +12,11 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.renderWhitespace": "all",
-  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.enabled": true
 }

@@ -39,7 +39,7 @@
 
         <v-list-item
           v-if="loggedUser"
-          :to="'/auth/logout'"
+          :to="'/accounts/logout'"
           router
           exact
         >
@@ -53,7 +53,7 @@
 
         <v-list-item
           v-else
-          :to="'/auth/login'"
+          :to="'/accounts/login'"
           router
           exact
         >
@@ -127,7 +127,7 @@ export default {
   },
   computed: {
     ...mapState({
-      loggedUser: state => state.login.loggedUser
+      loggedUser: state => state.accounts.loggedUser
     })
   },
   mounted () {

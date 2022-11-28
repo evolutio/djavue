@@ -7,3 +7,5 @@ htmlcov/
 .idea
 /{{name}}.log
 /static
+
+/apimock/node_modules
