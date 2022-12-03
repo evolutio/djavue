@@ -33,11 +33,7 @@
     >
       <v-card>
         <v-card-text>
-          <div>#{{ item.id }}</div>
-          <p class="ma-0 pa-0 text-h5 text--primary">
-            {{ item.description }}
-          </p>
-          <v-switch v-model="item.done" />
+          <my-task :task="item" />
         </v-card-text>
       </v-card>
     </v-col>
@@ -46,9 +42,11 @@
 
 <script>
 import TasksApi from '@/api/tasks.api.js'
+import MyTask from '@/components/MyTask.vue'
 
 export default {
   name: 'TasksList',
+  components: { MyTask },
   data () {
     return {
       newtask: '',
