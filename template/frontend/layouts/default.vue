@@ -1,117 +1,41 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
+    <app-side-bar
+      :drawer="drawer"
       :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+      :mini-variant="miniVariant"
+      :items="items"
+      :user="loggedUser"
+    />
 
-        <v-list-item
-          v-if="loggedUser"
-          :to="'/tasks/list'"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>mdi-apps</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="'Tasks List'" />
-          </v-list-item-content>
-        </v-list-item>
+    <app-nav-bar
+      :title="title"
+      :clipped="clipped"
+      :mini-variant="miniVariant"
+      @drawerClick="drawer = !drawer"
+      @clippedClick="clipped = !clipped"
+      @miniVariantClick="miniVariant = !miniVariant"
+      @fixedClick="fixed = !fixed"
+    />
 
-        <v-list-item
-          v-if="loggedUser"
-          :to="'/accounts/logout'"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>mdi-apps</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="'Logout'" />
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item
-          v-else
-          :to="'/accounts/login'"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>mdi-apps</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="'Login'" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-    </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span> &copy; {{ new Date().getFullYear() }} </span><span
-        v-if="loggedUser"
-        class="pl-4"
-      ><v-icon>mdi-account</v-icon> {{ loggedUser.username }}</span>
-    </v-footer>
+
+    <app-footer
+      :fixed="fixed"
+      :user="loggedUser"
+    />
   </v-app>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import AppNavBar from '@/components/AppNavBar.vue'
+import AppSideBar from '@/components/AppSideBar.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 export default {
   name: 'DefaultLayout',
@@ -124,6 +48,9 @@ export default {
       miniVariant: false,
       title: 'Djàvue'
     }
+  },
+  components: {
+    AppNavBar, AppSideBar, AppFooter
   },
   computed: {
     ...mapState({

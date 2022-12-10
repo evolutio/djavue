@@ -12,18 +12,10 @@
     </v-col>
 
     <v-col cols="12">
-      <v-card>
-        <v-card-text>
-          <v-text-field
-            v-model="newtask"
-            label="Nova tarefa"
-            required
-            outlined
-            append-icon="fa-pen"
-            @keyup.enter="addNewTask"
-          />
-        </v-card-text>
-      </v-card>
+      <task-form
+        :form-label="'Nova Tarefa'"
+        @newTask="addNewTask"
+      />
     </v-col>
 
     <v-col
@@ -31,25 +23,21 @@
       :key="item.id"
       cols="12"
     >
-      <v-card>
-        <v-card-text>
-          <my-task :task="item" />
-        </v-card-text>
-      </v-card>
+      <task :task="item" />
     </v-col>
   </v-row>
 </template>
 
 <script>
 import TasksApi from '@/api/tasks.api.js'
-import MyTask from '@/components/MyTask.vue'
+import Task from '~/components/Task.vue'
+import TaskForm from '@/components/TaskForm.vue'
 
 export default {
   name: 'TasksList',
-  components: { MyTask },
+  components: { Task, TaskForm },
   data () {
     return {
-      newtask: '',
       loading: false,
       items: [
       ]
@@ -63,12 +51,12 @@ export default {
         this.loading = false
       })
     },
-    addNewTask () {
+    addNewTask (task) {
       this.loading = true
-      TasksApi.addNewTask(this.newtask).then((data) => {
+      TasksApi.addNewTask(task.title).then((task) => {
+        console.log('nova tarefa criada:', task)
         this.getTasks()
         this.loading = false
-        this.newtask = ''
       })
     }
   },
