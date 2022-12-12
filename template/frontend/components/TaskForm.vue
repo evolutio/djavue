@@ -16,7 +16,12 @@
 
 <script>
 export default {
-  props: ["formLabel"],
+  props: {
+    formLabel: {
+      type: String,
+      default: "",
+    },
+  },
   data: () => {
     return {
       title: "",
@@ -32,5 +37,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -11,11 +11,10 @@
         </v-card-title>
         <v-card-text>
           <p>
-            Djávue tem Vuetify + Nuxt.js no frontend e Django no Backend, tudo já configurado e pronto para uso em Produção.
+            Djávue tem Vuetify + Nuxt.js no frontend e Django no Backend, tudo
+            já configurado e pronto para uso em Produção.
           </p>
-          <p>
-            Links úteis:
-          </p>
+          <p>Links úteis:</p>
           <ul>
             <li>
               <a
@@ -51,17 +50,15 @@
             </li>
           </ul>
           <p>
-            Achou um problema? Cadastre uma <a
+            Achou um problema? Cadastre uma
+            <a
               href="https://github.com/huogerac/djavue/issues"
               target="_blank"
               rel="noopener noreferrer"
               title="contribute">
-              Issue aqui
-            </a>.
+              Issue aqui </a>.
           </p>
-          <p>
-            Obrigado por utilizar este template.
-          </p>
+          <p>Obrigado por utilizar este template.</p>
           <div class="text-xs-right">
             <em><small>&mdash; Enzo Pascal 🎩</small></em>
           </div>
@@ -75,10 +72,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inicio">
+          <v-btn color="primary" nuxt to="/inicio">
             Continuar
           </v-btn>
         </v-card-actions>

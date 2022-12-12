@@ -1,19 +1,12 @@
 <template>
-  <v-row
-    justify="center"
-    align="center">
-    <v-col
-      cols="12"
-      sm="8"
-      md="6">
+  <v-row justify="center" align="center">
+    <v-col cols="12" sm="8" md="6">
       <v-card>
         <v-card-title class="headline">
           Bye Bye
         </v-card-title>
         <v-card-text>
-          <h2>
-            Confirm?
-          </h2>
+          <h2>Confirm?</h2>
           <p class="ma-4">
             <v-btn
               :loading="loading"
@@ -45,7 +38,7 @@ export default {
     logout () {
       this.loading = true
       AccountsApi.logout()
-        .then((user) => {
+        .then(() => {
           this.$store.commit("accounts/setLoggedUser", null)
           this.$router.push("/")
         })

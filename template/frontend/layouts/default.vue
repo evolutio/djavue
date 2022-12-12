@@ -22,9 +22,7 @@
       </v-container>
     </v-main>
 
-    <app-footer
-      :fixed="fixed"
-      :user="loggedUser" />
+    <app-footer :fixed="fixed" :user="loggedUser" />
   </v-app>
 </template>
 
@@ -36,6 +34,11 @@ import AppFooter from "@/components/AppFooter.vue"
 
 export default {
   name: "DefaultLayout",
+  components: {
+    AppNavBar,
+    AppSideBar,
+    AppFooter,
+  },
   data () {
     return {
       clipped: false,
@@ -46,12 +49,9 @@ export default {
       title: "Djàvue",
     }
   },
-  components: {
-    AppNavBar, AppSideBar, AppFooter,
-  },
   computed: {
     ...mapState({
-      loggedUser: state => state.accounts.loggedUser,
+      loggedUser: (state) => state.accounts.loggedUser,
     }),
   },
   mounted () {

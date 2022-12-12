@@ -1,14 +1,7 @@
 <template>
-  <v-row
-    justify="center"
-    align="center">
-    <v-col
-      cols="12"
-      sm="8"
-      md="6">
-      <v-snackbar
-        v-model="snackbar.show"
-        color="red accent-2">
+  <v-row justify="center" align="center">
+    <v-col cols="12" sm="8" md="6">
+      <v-snackbar v-model="snackbar.show" color="red accent-2">
         {{ snackbar.message }}
       </v-snackbar>
 
@@ -61,10 +54,7 @@
         </v-card-title>
         <v-card-text>
           <v-btn
-            color="primary"
-            class="mr-4"
-            x-large
-            block
+            color="primary" class="mr-4" x-large block
             @click="showTasks">
             Check my tasks <v-icon class="pl-3">
               fa-arrow-right
@@ -101,6 +91,13 @@ export default {
       loggedUser: (state) => state.accounts.loggedUser,
     }),
   },
+  mounted () {
+    AccountsApi.whoami().then((response) => {
+      if (response.authenticated) {
+        this.saveLoggedUser(response.user)
+      }
+    })
+  },
   methods: {
     login () {
       this.loading = true
@@ -129,13 +126,6 @@ export default {
     showTasks () {
       this.$router.push("/tasks/list")
     },
-  },
-  mounted () {
-    AccountsApi.whoami().then((response) => {
-      if (response.authenticated) {
-        this.saveLoggedUser(response.user)
-      }
-    })
   },
 }
 </script>

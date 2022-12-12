@@ -1,7 +1,5 @@
 <template>
-  <v-row
-    justify="center"
-    align="center">
+  <v-row justify="center" align="center">
     <v-col cols="12">
       <v-card>
         <v-card-title class="headline">
@@ -11,15 +9,10 @@
     </v-col>
 
     <v-col cols="12">
-      <task-form
-        :form-label="'Nova Tarefa'"
-        @newTask="addNewTask" />
+      <task-form :form-label="'Nova Tarefa'" @newTask="addNewTask" />
     </v-col>
 
-    <v-col
-      v-for="item in items"
-      :key="item.id"
-      cols="12">
+    <v-col v-for="item in items" :key="item.id" cols="12">
       <task :task="item" />
     </v-col>
   </v-row>
@@ -39,6 +32,9 @@ export default {
       items: [],
     }
   },
+  mounted () {
+    this.getTasks()
+  },
   methods: {
     getTasks () {
       this.loading = true
@@ -56,14 +52,11 @@ export default {
       })
     },
   },
-  mounted () {
-    this.getTasks()
-  },
 }
 </script>
 
 <style scoped>
-  .done {
-    text-decoration: line-through;
-  }
+.done {
+  text-decoration: line-through;
+}
 </style>

@@ -1,29 +1,14 @@
 <template>
-  <v-app-bar
-    :clipped-left="clipped"
-    fixed
-    app>
+  <v-app-bar :clipped-left="clipped" fixed app>
     <v-app-bar-nav-icon @click.stop="drawerClick" />
-    <v-btn
-      icon
-      @click.stop="miniVariantClick">
-      <v-icon>
-        mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}
-      </v-icon>
+    <v-btn icon @click.stop="miniVariantClick">
+      <v-icon> mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }} </v-icon>
     </v-btn>
-    <v-btn
-      icon
-      @click.stop="clippedClick">
-      <v-icon>
-        mdi-application
-      </v-icon>
+    <v-btn icon @click.stop="clippedClick">
+      <v-icon> mdi-application </v-icon>
     </v-btn>
-    <v-btn
-      icon
-      @click.stop="fixedClick">
-      <v-icon>
-        mdi-minus
-      </v-icon>
+    <v-btn icon @click.stop="fixedClick">
+      <v-icon> mdi-minus </v-icon>
     </v-btn>
     <v-toolbar-title v-text="title" />
     <v-spacer />
@@ -48,8 +33,7 @@ export default {
     },
   },
   data: () => {
-    return {
-    }
+    return {}
   },
   methods: {
     drawerClick () {
