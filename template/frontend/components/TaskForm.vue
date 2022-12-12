@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    addNewTask () {
+    addNewTask() {
       this.$emit("newTask", {
         title: this.title,
       })

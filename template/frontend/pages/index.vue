@@ -56,13 +56,14 @@
               target="_blank"
               rel="noopener noreferrer"
               title="contribute">
-              Issue aqui </a>.
+              Issue aqui </a
+            >.
           </p>
           <p>Obrigado por utilizar este template.</p>
           <div class="text-xs-right">
             <em><small>&mdash; Enzo Pascal 🎩</small></em>
           </div>
-          <hr class="my-3">
+          <hr class="my-3" />
           <a
             href="https://github.com/nuxt/nuxt.js"
             target="_blank"
@@ -72,9 +73,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/inicio">
-            Continuar
-          </v-btn>
+          <v-btn color="primary" nuxt to="/inicio"> Continuar </v-btn>
         </v-card-actions>
       </v-card>
     </v-col>

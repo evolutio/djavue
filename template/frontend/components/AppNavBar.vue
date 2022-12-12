@@ -36,16 +36,16 @@ export default {
     return {}
   },
   methods: {
-    drawerClick () {
+    drawerClick() {
       this.$emit("drawerClick")
     },
-    clippedClick () {
+    clippedClick() {
       this.$emit("clippedClick")
     },
-    miniVariantClick () {
+    miniVariantClick() {
       this.$emit("miniVariantClick")
     },
-    fixedClick () {
+    fixedClick() {
       this.$emit("fixedClick")
     },
   },

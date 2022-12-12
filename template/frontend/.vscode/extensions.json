@@ -2,6 +2,7 @@
   "recommendations": [
     "octref.vetur",
     "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
     "ecmel.vscode-html-css",
     "Zignd.html-css-class-completion",
     "pranaygp.vscode-css-peek"

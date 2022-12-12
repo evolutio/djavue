@@ -9,9 +9,7 @@
         <NuxtLogo />
       </v-card>
       <v-card v-if="!loggedUser">
-        <v-card-title class="headline">
-          Login
-        </v-card-title>
+        <v-card-title class="headline"> Login </v-card-title>
         <v-card-text>
           <v-form v-model="valid">
             <v-text-field
@@ -38,13 +36,13 @@
               x-large
               block
               @click="login">
-              Continuar <v-icon class="pl-3">
-                fa-arrow-right
-              </v-icon>
+              Continuar <v-icon class="pl-3"> fa-arrow-right </v-icon>
             </v-btn>
           </v-form>
           <p class="ma-4">
-            <span class="subtitle-1">Não tenho conta! Fazer <a href="">Cadastro</a></span>
+            <span class="subtitle-1"
+              >Não tenho conta! Fazer <a href="">Cadastro</a></span
+            >
           </p>
         </v-card-text>
       </v-card>
@@ -53,12 +51,8 @@
           You're already logged in.
         </v-card-title>
         <v-card-text>
-          <v-btn
-            color="primary" class="mr-4" x-large block
-            @click="showTasks">
-            Check my tasks <v-icon class="pl-3">
-              fa-arrow-right
-            </v-icon>
+          <v-btn color="primary" class="mr-4" x-large block @click="showTasks">
+            Check my tasks <v-icon class="pl-3"> fa-arrow-right </v-icon>
           </v-btn>
         </v-card-text>
       </v-card>
@@ -91,7 +85,7 @@ export default {
       loggedUser: (state) => state.accounts.loggedUser,
     }),
   },
-  mounted () {
+  mounted() {
     AccountsApi.whoami().then((response) => {
       if (response.authenticated) {
         this.saveLoggedUser(response.user)
@@ -99,7 +93,7 @@ export default {
     })
   },
   methods: {
-    login () {
+    login() {
       this.loading = true
       AccountsApi.login(this.username, this.password)
         .then((user) => {
@@ -115,7 +109,7 @@ export default {
           this.loading = false
         })
     },
-    saveLoggedUser (user) {
+    saveLoggedUser(user) {
       this.error = !user
       if (user) {
         this.$store.commit("accounts/setLoggedUser", user)
@@ -123,7 +117,7 @@ export default {
         console.log("logged")
       }
     },
-    showTasks () {
+    showTasks() {
       this.$router.push("/tasks/list")
     },
   },

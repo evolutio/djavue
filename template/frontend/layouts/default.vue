@@ -39,7 +39,7 @@ export default {
     AppSideBar,
     AppFooter,
   },
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
@@ -54,7 +54,7 @@ export default {
       loggedUser: (state) => state.accounts.loggedUser,
     }),
   },
-  mounted () {
+  mounted() {
     this.items = [
       {
         icon: "mdi-apps",

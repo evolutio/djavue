@@ -2,9 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12">
       <v-card>
-        <v-card-title class="headline">
-          Tasks
-        </v-card-title>
+        <v-card-title class="headline"> Tasks </v-card-title>
       </v-card>
     </v-col>
 
@@ -26,24 +24,24 @@ import TaskForm from "@/components/TaskForm.vue"
 export default {
   name: "TasksList",
   components: { Task, TaskForm },
-  data () {
+  data() {
     return {
       loading: false,
       items: [],
     }
   },
-  mounted () {
+  mounted() {
     this.getTasks()
   },
   methods: {
-    getTasks () {
+    getTasks() {
       this.loading = true
       TasksApi.getTasks().then((data) => {
         this.items = data.todos
         this.loading = false
       })
     },
-    addNewTask (task) {
+    addNewTask(task) {
       this.loading = true
       TasksApi.addNewTask(task.title).then((task) => {
         console.log("nova tarefa criada:", task)

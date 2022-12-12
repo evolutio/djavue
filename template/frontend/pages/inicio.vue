@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="ma-5">
+      <img src="/v.png" alt="Vuetify.js" class="ma-5" />
       <blockquote class="blockquote text-h5">
         &#8220;Primeiro, resolva o problema. Depois, escreva o código.&#8221;
         <footer>
@@ -18,14 +18,10 @@
         :to="{ name: 'accounts-login' }">
         Login
       </v-btn>
-      <v-btn
-        x-large rounded color="primary" dark
-        :to="{ name: 'tasks-list' }">
+      <v-btn x-large rounded color="primary" dark :to="{ name: 'tasks-list' }">
         Tasks
       </v-btn>
-      <v-btn
-        x-large rounded color="primary" dark
-        :to="{ name: 'index' }">
+      <v-btn x-large rounded color="primary" dark :to="{ name: 'index' }">
         Voltar
       </v-btn>
     </v-col>
