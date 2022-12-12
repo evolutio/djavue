@@ -8,5 +8,5 @@ const dataToForm = (params) => {
 }
 
 export default {
-  dataToForm
+  dataToForm,
 }

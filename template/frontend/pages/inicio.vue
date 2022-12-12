@@ -4,8 +4,7 @@
       <img
         src="/v.png"
         alt="Vuetify.js"
-        class="ma-5"
-      >
+        class="ma-5">
       <blockquote class="blockquote text-h5">
         &#8220;Primeiro, resolva o problema. Depois, escreva o código.&#8221;
         <footer>
@@ -19,8 +18,7 @@
         rounded
         color="primary"
         dark
-        :to="{ name: 'accounts-login' }"
-      >
+        :to="{ name: 'accounts-login' }">
         Login
       </v-btn>
       <v-btn
@@ -28,8 +26,7 @@
         rounded
         color="primary"
         dark
-        :to="{ name: 'tasks-list' }"
-      >
+        :to="{ name: 'tasks-list' }">
         Tasks
       </v-btn>
       <v-btn
@@ -37,8 +34,7 @@
         rounded
         color="primary"
         dark
-        :to="{ name: 'index' }"
-      >
+        :to="{ name: 'index' }">
         Voltar
       </v-btn>
     </v-col>
@@ -47,6 +43,6 @@
 
 <script>
 export default {
-  name: 'InicioPage'
+  name: "InicioPage",
 }
 </script>

@@ -1,18 +1,16 @@
 <template>
   <v-footer
     :absolute="!fixed"
-    app
-  >
+    app>
     <span> &copy; {{ new Date().getFullYear() }} </span><span
       v-if="user"
-      class="pl-4"
-    ><v-icon>mdi-account</v-icon> {{ user.username }}</span>
+      class="pl-4"><v-icon>mdi-account</v-icon> {{ user.username }}</span>
   </v-footer>
 </template>
 
 <script>
 export default {
-  props: ['fixed', 'user'],
-  data: () => ({})
+  props: ["fixed", "user"],
+  data: () => ({}),
 }
 </script>

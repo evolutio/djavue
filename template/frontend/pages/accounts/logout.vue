@@ -1,19 +1,19 @@
 <template>
   <v-row
     justify="center"
-    align="center"
-  >
+    align="center">
     <v-col
       cols="12"
       sm="8"
-      md="6"
-    >
+      md="6">
       <v-card>
         <v-card-title class="headline">
           Bye Bye
         </v-card-title>
         <v-card-text>
-          <h2>Confirm?</h2>
+          <h2>
+            Confirm?
+          </h2>
           <p class="ma-4">
             <v-btn
               :loading="loading"
@@ -21,8 +21,7 @@
               class="mr-4"
               x-large
               block
-              @click="logout"
-            >
+              @click="logout">
               Yes
             </v-btn>
           </p>
@@ -33,13 +32,13 @@
 </template>
 
 <script>
-import AccountsApi from '@/api/accounts.api.js'
+import AccountsApi from "@/api/accounts.api.js"
 
 export default {
-  name: 'LogoutPage',
+  name: "LogoutPage",
   data: () => {
     return {
-      loading: false
+      loading: false,
     }
   },
   methods: {
@@ -47,13 +46,13 @@ export default {
       this.loading = true
       AccountsApi.logout()
         .then((user) => {
-          this.$store.commit('accounts/setLoggedUser', null)
-          this.$router.push('/')
+          this.$store.commit("accounts/setLoggedUser", null)
+          this.$router.push("/")
         })
         .finally(() => {
           this.loading = false
         })
-    }
-  }
+    },
+  },
 }
 </script>

@@ -1,17 +1,14 @@
 <template>
   <v-row
     justify="center"
-    align="center"
-  >
+    align="center">
     <v-col
       cols="12"
       sm="8"
-      md="6"
-    >
+      md="6">
       <v-snackbar
         v-model="snackbar.show"
-        color="red accent-2"
-      >
+        color="red accent-2">
         {{ snackbar.message }}
       </v-snackbar>
 
@@ -30,8 +27,7 @@
               required
               outlined
               append-icon="fa-user"
-              @keyup.enter="login"
-            />
+              @keyup.enter="login" />
 
             <v-text-field
               v-model="password"
@@ -40,8 +36,7 @@
               required
               outlined
               append-icon="fa-key"
-              @keyup.enter="login"
-            />
+              @keyup.enter="login" />
             <v-btn
               :loading="loading"
               :disabled="!valid"
@@ -49,8 +44,7 @@
               class="mr-4"
               x-large
               block
-              @click="login"
-            >
+              @click="login">
               Continuar <v-icon class="pl-3">
                 fa-arrow-right
               </v-icon>
@@ -71,8 +65,7 @@
             class="mr-4"
             x-large
             block
-            @click="showTasks"
-          >
+            @click="showTasks">
             Check my tasks <v-icon class="pl-3">
               fa-arrow-right
             </v-icon>
@@ -84,29 +77,29 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import AccountsApi from '@/api/accounts.api.js'
+import { mapState } from "vuex"
+import AccountsApi from "@/api/accounts.api.js"
 
 export default {
-  name: 'LoginPage',
+  name: "LoginPage",
   data: () => {
     return {
       loading: false,
       valid: false,
-      username: '',
-      password: '',
+      username: "",
+      password: "",
       snackbar: {
         show: false,
-        message: ''
+        message: "",
       },
       error: false,
-      visible: false
+      visible: false,
     }
   },
   computed: {
     ...mapState({
-      loggedUser: (state) => state.accounts.loggedUser
-    })
+      loggedUser: (state) => state.accounts.loggedUser,
+    }),
   },
   methods: {
     login () {
@@ -114,7 +107,7 @@ export default {
       AccountsApi.login(this.username, this.password)
         .then((user) => {
           if (!user) {
-            this.snackbar.message = 'Usuário ou senha invalida'
+            this.snackbar.message = "Usuário ou senha invalida"
             this.snackbar.show = true
             return
           }
@@ -128,14 +121,14 @@ export default {
     saveLoggedUser (user) {
       this.error = !user
       if (user) {
-        this.$store.commit('accounts/setLoggedUser', user)
+        this.$store.commit("accounts/setLoggedUser", user)
         this.visible = false
-        console.log('logged')
+        console.log("logged")
       }
     },
     showTasks () {
-      this.$router.push('/tasks/list')
-    }
+      this.$router.push("/tasks/list")
+    },
   },
   mounted () {
     AccountsApi.whoami().then((response) => {
@@ -143,6 +136,6 @@ export default {
         this.saveLoggedUser(response.user)
       }
     })
-  }
+  },
 }
 </script>

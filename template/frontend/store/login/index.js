@@ -1,3 +1,3 @@
 export const state = () => ({
-  loggedUser: undefined
+  loggedUser: undefined,
 })

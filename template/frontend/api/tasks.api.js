@@ -1,11 +1,11 @@
-import api from './config.js'
-import apiHelpers from './helpers.js'
+import api from "./config.js"
+import apiHelpers from "./helpers.js"
 
 export default {
   getTasks: () => {
     return new Promise((resolve, reject) => {
       api
-        .get('/api/list_todos')
+        .get("/api/list_todos")
         .then((response) => {
           return resolve(response.data)
         })
@@ -17,7 +17,7 @@ export default {
   addNewTask: (description) => {
     return new Promise((resolve, reject) => {
       api
-        .post('/api/add_todo', apiHelpers.dataToForm({ description }))
+        .post("/api/add_todo", apiHelpers.dataToForm({ description }))
         .then((response) => {
           return resolve(response.data)
         })
@@ -25,5 +25,5 @@ export default {
           return reject(error)
         })
     })
-  }
+  },
 }

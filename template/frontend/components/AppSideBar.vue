@@ -4,18 +4,18 @@
     :mini-variant="miniVariant"
     :clipped="clipped"
     fixed
-    app
-  >
+    app>
     <v-list>
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
         :to="item.to"
         router
-        exact
-      >
+        exact>
         <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon>
+            {{ item.icon }}
+          </v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title v-text="item.title" />
@@ -26,10 +26,11 @@
         v-if="user"
         :to="'/tasks/list'"
         router
-        exact
-      >
+        exact>
         <v-list-item-action>
-          <v-icon>mdi-apps</v-icon>
+          <v-icon>
+            mdi-apps
+          </v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title v-text="'Tasks List'" />
@@ -40,10 +41,11 @@
         v-if="user"
         :to="'/accounts/logout'"
         router
-        exact
-      >
+        exact>
         <v-list-item-action>
-          <v-icon>mdi-apps</v-icon>
+          <v-icon>
+            mdi-apps
+          </v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title v-text="'Logout'" />
@@ -54,10 +56,11 @@
         v-else
         :to="'/accounts/login'"
         router
-        exact
-      >
+        exact>
         <v-list-item-action>
-          <v-icon>mdi-apps</v-icon>
+          <v-icon>
+            mdi-apps
+          </v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title v-text="'Login'" />
@@ -72,33 +75,33 @@ export default {
   props: {
     drawer: {
       type: Boolean,
-      required: true
+      required: true,
     },
     clipped: {
       type: Boolean,
-      required: true
+      required: true,
     },
     miniVariant: {
       type: Boolean,
-      required: true
+      required: true,
     },
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     user: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data: () => {
     return {
-      drawerData: false
+      drawerData: false,
     }
   },
   watch: {
     drawer: function () {
       this.drawerData = !this.drawerData
-    }
-  }
+    },
+  },
 }
 </script>

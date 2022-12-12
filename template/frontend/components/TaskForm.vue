@@ -8,8 +8,7 @@
           required
           outlined
           append-icon="fa-pen"
-          @keyup.enter="addNewTask"
-        />
+          @keyup.enter="addNewTask" />
       </v-card-text>
     </v-card>
   </div>
@@ -17,19 +16,19 @@
 
 <script>
 export default {
-  props: ['formLabel'],
+  props: ["formLabel"],
   data: () => {
     return {
-      title: ''
+      title: "",
     }
   },
   methods: {
     addNewTask () {
-      this.$emit('newTask', {
-        title: this.title
+      this.$emit("newTask", {
+        title: this.title,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

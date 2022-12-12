@@ -5,8 +5,7 @@
       :clipped="clipped"
       :mini-variant="miniVariant"
       :items="items"
-      :user="loggedUser"
-    />
+      :user="loggedUser" />
 
     <app-nav-bar
       :title="title"
@@ -15,8 +14,7 @@
       @drawerClick="drawer = !drawer"
       @clippedClick="clipped = !clipped"
       @miniVariantClick="miniVariant = !miniVariant"
-      @fixedClick="fixed = !fixed"
-    />
+      @fixedClick="fixed = !fixed" />
 
     <v-main>
       <v-container>
@@ -26,19 +24,18 @@
 
     <app-footer
       :fixed="fixed"
-      :user="loggedUser"
-    />
+      :user="loggedUser" />
   </v-app>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import AppNavBar from '@/components/AppNavBar.vue'
-import AppSideBar from '@/components/AppSideBar.vue'
-import AppFooter from '@/components/AppFooter.vue'
+import { mapState } from "vuex"
+import AppNavBar from "@/components/AppNavBar.vue"
+import AppSideBar from "@/components/AppSideBar.vue"
+import AppFooter from "@/components/AppFooter.vue"
 
 export default {
-  name: 'DefaultLayout',
+  name: "DefaultLayout",
   data () {
     return {
       clipped: false,
@@ -46,30 +43,30 @@ export default {
       fixed: false,
       items: [],
       miniVariant: false,
-      title: 'Djàvue'
+      title: "Djàvue",
     }
   },
   components: {
-    AppNavBar, AppSideBar, AppFooter
+    AppNavBar, AppSideBar, AppFooter,
   },
   computed: {
     ...mapState({
-      loggedUser: state => state.accounts.loggedUser
-    })
+      loggedUser: state => state.accounts.loggedUser,
+    }),
   },
   mounted () {
     this.items = [
       {
-        icon: 'mdi-apps',
-        title: 'Bem-vindo',
-        to: '/'
+        icon: "mdi-apps",
+        title: "Bem-vindo",
+        to: "/",
       },
       {
-        icon: 'mdi-chart-bubble',
-        title: 'Início',
-        to: '/inicio'
-      }
+        icon: "mdi-chart-bubble",
+        title: "Início",
+        to: "/inicio",
+      },
     ]
-  }
+  },
 }
 </script>

@@ -2,26 +2,28 @@
   <v-app-bar
     :clipped-left="clipped"
     fixed
-    app
-  >
+    app>
     <v-app-bar-nav-icon @click.stop="drawerClick" />
     <v-btn
       icon
-      @click.stop="miniVariantClick"
-    >
-      <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      @click.stop="miniVariantClick">
+      <v-icon>
+        mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}
+      </v-icon>
     </v-btn>
     <v-btn
       icon
-      @click.stop="clippedClick"
-    >
-      <v-icon>mdi-application</v-icon>
+      @click.stop="clippedClick">
+      <v-icon>
+        mdi-application
+      </v-icon>
     </v-btn>
     <v-btn
       icon
-      @click.stop="fixedClick"
-    >
-      <v-icon>mdi-minus</v-icon>
+      @click.stop="fixedClick">
+      <v-icon>
+        mdi-minus
+      </v-icon>
     </v-btn>
     <v-toolbar-title v-text="title" />
     <v-spacer />
@@ -33,17 +35,17 @@ export default {
   props: {
     clipped: {
       type: Boolean,
-      required: true
+      required: true,
     },
     miniVariant: {
       type: Boolean,
-      required: true
+      required: true,
     },
     title: {
       type: String,
       required: false,
-      default: 'MyApp'
-    }
+      default: "MyApp",
+    },
   },
   data: () => {
     return {
@@ -51,17 +53,17 @@ export default {
   },
   methods: {
     drawerClick () {
-      this.$emit('drawerClick')
+      this.$emit("drawerClick")
     },
     clippedClick () {
-      this.$emit('clippedClick')
+      this.$emit("clippedClick")
     },
     miniVariantClick () {
-      this.$emit('miniVariantClick')
+      this.$emit("miniVariantClick")
     },
     fixedClick () {
-      this.$emit('fixedClick')
-    }
-  }
+      this.$emit("fixedClick")
+    },
+  },
 }
 </script>
