@@ -5,6 +5,10 @@
       <v-icon>mdi-account</v-icon>
       {{ user.username }}
     </span>
+    <div class="px-5 text-grey">
+      <span class="px-5">API: {{ apiBaseUrl }}</span>
+      <span class="px-5">ENV: {{ nodeEnv }}</span>
+    </div>
   </v-footer>
 </template>
 
@@ -20,6 +24,9 @@ export default {
       default: null,
     },
   },
-  data: () => ({}),
+  data: () => ({
+    apiBaseUrl: process.env.apiBaseUrl,
+    nodeEnv: process.env.nodeEnv,
+  }),
 }
 </script>
