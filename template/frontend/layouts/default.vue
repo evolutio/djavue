@@ -16,6 +16,8 @@
       @miniVariantClick="miniVariant = !miniVariant"
       @fixedClick="fixed = !fixed" />
 
+    <app-error-dialog :show="showErrorMessage" :message="errorMessage" />
+
     <v-main>
       <v-container>
         <Nuxt />
@@ -30,6 +32,7 @@
 import { mapState } from "vuex"
 import AppNavBar from "@/components/AppNavBar.vue"
 import AppSideBar from "@/components/AppSideBar.vue"
+import AppErrorDialog from "@/components/AppErrorDialog.vue"
 import AppFooter from "@/components/AppFooter.vue"
 
 export default {
@@ -37,6 +40,7 @@ export default {
   components: {
     AppNavBar,
     AppSideBar,
+    AppErrorDialog,
     AppFooter,
   },
   data () {
@@ -52,6 +56,8 @@ export default {
   computed: {
     ...mapState({
       loggedUser: (state) => state.accounts.loggedUser,
+      errorMessage: (state) => state.app.errorMessage,
+      showErrorMessage: (state) => state.app.showErrorMessage,
     }),
   },
   mounted () {
