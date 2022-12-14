@@ -2,22 +2,16 @@
   <v-app dark>
     <app-side-bar
       :drawer="drawer"
-      :clipped="clipped"
-      :mini-variant="miniVariant"
+      :clipped="false"
+      :mini-variant="false"
       :items="items"
       :user="loggedUser" />
 
     <app-nav-bar
       :title="title"
-      :clipped="clipped"
-      :mini-variant="miniVariant"
-      @drawerClick="drawer = !drawer"
-      @clippedClick="clipped = !clipped"
-      @miniVariantClick="miniVariant = !miniVariant"
-      @fixedClick="fixed = !fixed" />
+      @drawerClick="drawer = !drawer" />
 
     <app-error-dialog :show="showErrorMessage" :message="errorMessage" />
-
     <v-main>
       <v-container>
         <Nuxt />
@@ -45,11 +39,9 @@ export default {
   },
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      drawer: true,
+      fixed: true,
       items: [],
-      miniVariant: false,
       title: "Djàvue",
     }
   },
