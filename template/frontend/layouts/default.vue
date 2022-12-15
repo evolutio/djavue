@@ -12,6 +12,8 @@
       @drawerClick="drawer = !drawer" />
 
     <app-error-dialog :show="showErrorMessage" :message="errorMessage" />
+    <app-snackbar />
+
     <v-main>
       <v-container>
         <Nuxt />
@@ -26,6 +28,7 @@
 import { mapState } from "vuex"
 import AppNavBar from "@/components/AppNavBar.vue"
 import AppSideBar from "@/components/AppSideBar.vue"
+import AppSnackbar from "@/components/AppSnackbar.vue"
 import AppErrorDialog from "@/components/AppErrorDialog.vue"
 import AppFooter from "@/components/AppFooter.vue"
 
@@ -34,6 +37,7 @@ export default {
   components: {
     AppNavBar,
     AppSideBar,
+    AppSnackbar,
     AppErrorDialog,
     AppFooter,
   },

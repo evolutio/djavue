@@ -26,7 +26,7 @@ export function responseError (error) {
 
   // Redireciona erro de autênticação para página de login
   if (error.response && error.response.status === 401) {
-    $router.push({ name: "accounts-login" })
+    $router.push({ name: "accounts-login", params: { message: "Usuário sem autênticação. Efetue o login!" } })
     return
   }
   return Promise.reject(error)

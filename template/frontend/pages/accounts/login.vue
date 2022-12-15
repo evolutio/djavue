@@ -1,10 +1,6 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-snackbar v-model="snackbar.show" color="red accent-2">
-        {{ snackbar.message }}
-      </v-snackbar>
-
       <v-card class="logo py-4 d-flex justify-center">
         <NuxtLogo />
       </v-card>
@@ -78,10 +74,6 @@ export default {
       valid: false,
       username: "",
       password: "",
-      snackbar: {
-        show: false,
-        message: "",
-      },
       error: false,
       visible: false,
     }
@@ -92,6 +84,7 @@ export default {
     }),
   },
   mounted () {
+    this.checkMessage()
     AccountsApi.whoami().then((response) => {
       if (response.authenticated) {
         this.saveLoggedUser(response.user)
@@ -104,8 +97,7 @@ export default {
       AccountsApi.login(this.username, this.password)
         .then((user) => {
           if (!user) {
-            this.snackbar.message = "Usuário ou senha invalida"
-            this.snackbar.show = true
+            this.$nuxt.$emit("show-snackbar", "Usuário ou senha invalida", "danger")
             return
           }
           this.saveLoggedUser(user)
@@ -125,6 +117,11 @@ export default {
     },
     showTasks () {
       this.$router.push("/tasks/list")
+    },
+    checkMessage () {
+      if (this.$route.params.message) {
+        this.$nuxt.$emit("show-snackbar", this.$route.params.message, "warning")
+      }
     },
   },
 }

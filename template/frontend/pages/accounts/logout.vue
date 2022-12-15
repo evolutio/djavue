@@ -40,6 +40,7 @@ export default {
       AccountsApi.logout()
         .then(() => {
           this.$store.commit("accounts/setLoggedUser", null)
+          this.$nuxt.$emit("show-snackbar", "Sessão encerrada!")
           this.$router.push("/")
         })
         .finally(() => {

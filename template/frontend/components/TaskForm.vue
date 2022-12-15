@@ -32,6 +32,7 @@ export default {
       this.$emit("newTask", {
         title: this.title,
       })
+      this.title = ""
     },
   },
 }

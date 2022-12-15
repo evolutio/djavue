@@ -46,7 +46,7 @@ export default {
     addNewTask (task) {
       this.loading = true
       TasksApi.addNewTask(task.title).then((task) => {
-        console.log("nova tarefa criada:", task)
+        this.$nuxt.$emit("show-snackbar", `Nova tarefa adicionada #${task.id}`)
         this.getTasks()
         this.loading = false
       })
