@@ -162,6 +162,19 @@ A melhor forma para promover uma mudança é criando uma [Issue aqui](https://gi
 
 ## CHANGELOG
 
+### 2022-12-17 - v.2.1.0 - Melhoria na qualidade do codigo
+
+- [frontend] snackbar centralizado (via service bus)
+- [frontend] paginas para melhor visualizacao de erros do backend (ou off-line)
+- [frontend] bugfix: variaveis de ambiente (.env) nao estava funcionando
+- [frontend] refactoring para criar mais componentes e melhor organizacao do projeto
+- [frontend] melhoria nas configuracoes do linter (eslint)
+- [frontend] centraliza codigo de login na sub-app accounts
+- [frontend] pag. login identifica usuario logado (cookie valido)
+- [frontend] remover varios erros do console do frontend
+- [backend] melhor estrutura usando uma pasta raiz unica
+- [backend] bugfix: docker-compose, backend esperar o banco subir para evitar timeout
+
 ### 2022-10-12 - v.2.0.0 - Atualizado para versões mais recentes do Django e Djavue
 
 - Atualizado de Django 1.11 para 4.0
