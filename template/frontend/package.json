@@ -17,7 +17,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.1",
-    "nuxt": "^1.0.0",
+    "nuxt": "^3.0.0",
     "vue2-filters": "^0.3.0",
     "vuetify": "^1.0.4"
   },
@@ -25,9 +25,9 @@
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^4.0.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^7.1.0"
   }
 }
