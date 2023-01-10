@@ -162,7 +162,7 @@ A melhor forma para promover uma mudança é criando uma [Issue aqui](https://gi
 
 ## CHANGELOG
 
-### 2022-12-17 - v.2.1.0 - Melhoria na qualidade do codigo
+### 2022-12-17 - v2.1.0 - Melhoria na qualidade do codigo
 
 - [frontend] snackbar centralizado (via service bus)
 - [frontend] paginas para melhor visualizacao de erros do backend (ou off-line)
@@ -175,7 +175,7 @@ A melhor forma para promover uma mudança é criando uma [Issue aqui](https://gi
 - [backend] melhor estrutura usando uma pasta raiz unica
 - [backend] bugfix: docker-compose, backend esperar o banco subir para evitar timeout
 
-### 2022-10-12 - v.2.0.0 - Atualizado para versões mais recentes do Django e Djavue
+### 2022-10-12 - v2.0.0 - Atualizado para versões mais recentes do Django e Djavue
 
 - Atualizado de Django 1.11 para 4.0
 - Atualizado de Vuejs, vuetity e nuxt 1.0 para 2.6, Node 9 para 14
@@ -188,20 +188,20 @@ A melhor forma para promover uma mudança é criando uma [Issue aqui](https://gi
 - Adiciona Flake8 para linter do backend
 - Adiciona mais regras para linter no frontend com Eslint
 
-### 2019-11-28 - v.1.0.1 - Pequenos ajustes
+### 2019-11-28 - v1.0.1 - Pequenos ajustes
 
 - bugfixes
 - fix de segurança
 - habilitado PWA
 - ajuste no show do snack
 
-### 2018-06-05 - v.1.0.0 - Versão mais funcional
+### 2018-06-05 - v1.0.0 - Versão mais funcional
 
 - Melhor documentação
 - Melhor configurações para deploy
 - Diversos bufixes
 
-### 2018-03-18 - v.0.0.1 - Versão inicial
+### 2018-03-18 - v0.0.1 - Versão inicial
 
 - Primeira versão lançada
 
