@@ -1,34 +1,33 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
-  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
-    "format": "npm run lint:js -- --fix"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "format": "prettier .  --write"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
-    "core-js": "^3.25.3",
-    "nuxt": "^2.15.8",
-    "vue": "^2.7.10",
-    "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10",
-    "vuetify": "^2.6.10"
+    "@mdi/font": "7.0.96",
+    "axios": "^1.2.1",
+    "pinia": "^2.0.28",
+    "roboto-fontface": "*",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6",
+    "vuetify": "^3.0.5",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
-    "@nuxt/postcss8": "^1.1.3",
-    "@nuxtjs/eslint-config": "^8.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/vuetify": "^1.12.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.25.0",
-    "eslint-plugin-nuxt": "^3.1.0",
-    "eslint-plugin-vue": "^9.6.0"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "vite": "^4.0.0",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jsdom": "^20.0.3",
+    "prettier": "2.8.1"
   }
 }

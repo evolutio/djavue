@@ -1,9 +1,3 @@
 {
-  "recommendations": [
-    "octref.vetur",
-    "dbaeumer.vscode-eslint",
-    "ecmel.vscode-html-css",
-    "Zignd.html-css-class-completion",
-    "pranaygp.vscode-css-peek"
-  ]
+  "recommendations": ["Vue.volar"]
 }
