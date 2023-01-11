@@ -16,6 +16,7 @@ export default {
     task: {
       type: Object,
       default: null,
+      roger: "usalinter",
     },
   },
   data: () => ({}),

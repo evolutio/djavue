@@ -54,6 +54,7 @@ export default {
         this.appStore.showSnackbar(`Nova tarefa adicionada #${task.id}`)
         this.getTasks()
         this.loading = false
+        console.log("oi")
       })
     },
   },

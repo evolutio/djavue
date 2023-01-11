@@ -4,16 +4,19 @@ export const useAppStore = defineStore("appStore", {
   state: () => ({
     errorMessage: undefined,
     showErrorMessage: false,
+    snackbarMessage: undefined,
+    showSnackbarMessage: false,
     type: "success",
   }),
   actions: {
-    setShowErrorMessage(payload) {
-      this.showErrorMessage = payload
+    setShowErrorMessage(errorMessage) {
+      this.errorMessage = errorMessage
+      this.showErrorMessage = !!errorMessage
     },
     showSnackbar(message, type) {
       this.type = type
-      this.errorMessage = message
-      this.showErrorMessage = !!message
+      this.snackbarMessage = message
+      this.showSnackbarMessage = !!message
     },
   },
 })

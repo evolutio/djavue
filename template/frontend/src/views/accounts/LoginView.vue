@@ -37,7 +37,7 @@
             color="primary"
             variant="outlined"
             :to="{ name: 'basic-home' }">
-            Home
+            Início
           </v-btn>
         </v-form>
       </v-col>
@@ -71,7 +71,6 @@ export default {
     ...mapState(useAccountsStore, ["loggedUser"]),
   },
   mounted() {
-    this.checkMessage()
     console.log(this.loggedUser)
     AccountsApi.whoami().then((response) => {
       if (response.authenticated) {
@@ -85,12 +84,12 @@ export default {
     login() {
       this.loading = true
       AccountsApi.login(this.username, this.password)
-        .then((user) => {
-          if (!user) {
+        .then((response) => {
+          if (!response) {
             this.appStore.showSnackbar("Usuário ou senha invalida", "danger")
             return
           }
-          this.saveLoggedUser(user)
+          this.saveLoggedUser(response.user)
           this.showTasks()
         })
         .finally(() => {
@@ -108,12 +107,6 @@ export default {
     showTasks() {
       this.$router.push({ name: "tasks-list" })
       console.log("--> tasks")
-    },
-    checkMessage() {
-      if (this.$route.params.message) {
-        // this.$nuxt.$emit("show-snackbar", this.$route.params.message, "warning")
-        console.log("--->", this.$route.params.message)
-      }
     },
   },
 }

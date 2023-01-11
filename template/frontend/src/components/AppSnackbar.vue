@@ -7,7 +7,7 @@
     elevation="12"
     content-class="snackbar-ft-size"
     transition="slide-y-transition">
-    {{ errorMessage }}
+    {{ snackbarMessage }}
   </v-snackbar>
 </template>
 
@@ -20,20 +20,14 @@ export default {
     const appStore = useAppStore()
     return { appStore }
   },
-  data: () => {
-    return {
-      show: false,
-      message: null,
-    }
-  },
   computed: {
-    ...mapState(useAppStore, ["errorMessage", "type", "showErrorMessage"]),
+    ...mapState(useAppStore, ["snackbarMessage", "type", "showSnackbarMessage"]),
     showSnackbar: {
       get() {
-        return this.showErrorMessage
+        return this.showSnackbarMessage
       },
       set(value) {
-        this.appStore.setShowErrorMessage(value)
+        this.appStore.showSnackbar(value)
       },
     },
     snackbarCollors() {
