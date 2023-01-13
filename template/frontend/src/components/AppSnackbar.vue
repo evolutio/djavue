@@ -3,10 +3,9 @@
     v-model="showSnackbar"
     :color="snackbarCollors"
     multi-line
-    top
+    location="center"
     elevation="12"
-    content-class="snackbar-ft-size"
-    transition="slide-y-transition">
+    content-class="snackbar-ft-size">
     {{ snackbarMessage }}
   </v-snackbar>
 </template>
@@ -43,7 +42,7 @@ export default {
 </script>
 
 <style>
-.v-snack__content.snackbar-ft-size {
+.v-snackbar .snackbar-ft-size .v-snackbar__wrapper .v-snackbar__content {
   font-size: 1.1rem;
 }
 </style>

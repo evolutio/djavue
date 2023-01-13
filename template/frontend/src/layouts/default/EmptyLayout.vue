@@ -1,13 +1,13 @@
 <template>
   <VLayout>
     <app-error-dialog :show="showErrorMessage" :message="errorMessage" @close="closeErrorDialog" />
+    <app-snackbar />
     <VApp>
       <VMain>
         <RouterView />
       </VMain>
       <app-footer :fixed="true" :user="loggedUser" />
     </VApp>
-    <app-snackbar />
   </VLayout>
 </template>
 
