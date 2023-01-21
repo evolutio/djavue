@@ -1,4 +1,4 @@
-FROM node:14.20-slim
+FROM node:16.17-slim
 
 WORKDIR /frontend
 
@@ -6,16 +6,17 @@ WORKDIR /frontend
 RUN apt-get update && apt-get install -y \
   curl vim wget \
   build-essential \
+  && npm install -g npm@9.3.1 \
   && rm -rf /var/lib/apt/lists/* \
   && npm install -g pm2@5.2.0
 
-#### Prepare Frontend Vuejs + Nuxt App
+#### Prepare Frontend Vuejs 3
 
 COPY ./package.json ./package-lock.json ./
 
 RUN npm install \
-    && npm cache clean --force \
-    && npm cache verify
+  && npm cache clean --force \
+  && npm cache verify
 
 COPY . ./
 
