@@ -5,7 +5,7 @@ export default {
   getTasks: () => {
     return new Promise((resolve, reject) => {
       api
-        .get("/api/list_todos")
+        .get("/api/tasks/list")
         .then((response) => {
           return resolve(response.data)
         })
@@ -17,7 +17,7 @@ export default {
   addNewTask: (description) => {
     return new Promise((resolve, reject) => {
       api
-        .post("/api/add_todo", apiHelpers.dataToForm({ description }))
+        .post("/api/tasks/add", apiHelpers.dataToForm({ description }))
         .then((response) => {
           return resolve(response.data)
         })

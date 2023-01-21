@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const cookieParser = require("cookie-parser");
 
-const core = require("./controllers/core");
+const base = require("./controllers/base");
 const accounts = require("./controllers/accounts");
 const tasks = require("./controllers/tasks");
 
@@ -24,9 +24,8 @@ const ORIGIN_URL = process.env.ORIGIN_URL || "http://localhost:3000";
 
 app.use(cors({ credentials: true, origin: ORIGIN_URL }));
 
-// CORE
-app.get("dapau", core.dapau);
-// ap.get("status", core.dapau);
+// BASE
+app.get("dapau", base.dapau);
 
 // ACCOUNTS
 app.post("/api/accounts/login", accounts.login);
@@ -34,8 +33,8 @@ app.post("/api/accounts/logout", accounts.logout);
 app.get("/api/accounts/whoami", accounts.whoami);
 
 // TASKS
-app.get("/api/list_todos", tasks.find);
-app.post("/api/add_todo", tasks.add);
+app.get("/api/tasks/list", tasks.find);
+app.post("/api/tasks/add", tasks.add);
 
 app.listen(PORT, () => {
   console.log(

@@ -1,4 +1,4 @@
-from {{name}}.accounts.models import User
+from app1.accounts.models import User
 from . import fixtures
 
 
