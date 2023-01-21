@@ -1,7 +1,7 @@
 // Composables
 import EmptyLayout from "@/layouts/default/EmptyLayout.vue"
-import HomeView from "@/views/basic/HomeView.vue"
-import GetStartedView from "@/views/basic/GetStartedView.vue"
+import HomeView from "@/views/base/HomeView.vue"
+import GetStartedView from "@/views/base/GetStartedView.vue"
 
 export default [
   {
@@ -10,12 +10,12 @@ export default [
     children: [
       {
         path: "",
-        name: "basic-home",
+        name: "base-home",
         component: HomeView,
       },
       {
         path: "getstarted",
-        name: "basic-getstarted",
+        name: "base-getstarted",
         component: GetStartedView,
       },
     ],

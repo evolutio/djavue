@@ -2,7 +2,7 @@
   <v-app-bar>
     <v-app-bar-title>{{ title }}</v-app-bar-title>
     <template #append>
-      <v-btn icon="mdi-heart" :to="{ name: 'basic-home' }"></v-btn>
+      <v-btn icon="mdi-heart" :to="{ name: 'base-home' }"></v-btn>
       <v-btn icon="mdi-magnify"></v-btn>
       <v-btn
         :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"

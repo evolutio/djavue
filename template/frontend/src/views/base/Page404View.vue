@@ -6,7 +6,7 @@
         <v-card-text> Não foi possível achar está página </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" :to="{ name: 'basic-home' }"> Início </v-btn>
+          <v-btn color="primary" :to="{ name: 'base-home' }"> Início </v-btn>
         </v-card-actions>
       </v-card>
     </v-responsive>

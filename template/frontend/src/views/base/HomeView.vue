@@ -21,7 +21,7 @@
         <v-col cols="auto">
           <v-btn
             color="primary"
-            :to="{ name: 'basic-getstarted' }"
+            :to="{ name: 'base-getstarted' }"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"

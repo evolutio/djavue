@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="center mt-10" no-gutters>
+    <v-row align="center" class="mt-10" no-gutters>
       <v-col cols="12" sm="6" offset-sm="3">
         <v-sheet class="pa-2"> <h1>Login</h1> </v-sheet>
         <v-form>
@@ -14,6 +14,7 @@
 
           <v-text-field
             v-model="password"
+            type="password"
             label="Password"
             prepend-inner-icon="mdi-key-outline"
             variant="outlined"
@@ -36,7 +37,7 @@
             rounded="pill"
             color="primary"
             variant="outlined"
-            :to="{ name: 'basic-home' }">
+            :to="{ name: 'base-home' }">
             Início
           </v-btn>
         </v-form>

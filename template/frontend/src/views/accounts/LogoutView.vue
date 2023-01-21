@@ -15,7 +15,7 @@
                 block
                 color="primary"
                 variant="outlined"
-                :to="{ name: 'basic-home' }">
+                :to="{ name: 'base-home' }">
                 Início
               </v-btn>
             </p>
@@ -49,7 +49,7 @@ export default {
         .then(() => {
           this.accountsStore.clearLoggedUser()
           this.appStore.showSnackbar("Sessão encerrada!", "warning")
-          this.$router.push({ name: "basic-home" })
+          this.$router.push({ name: "base-home" })
         })
         .finally(() => {
           this.loading = false
