@@ -16,7 +16,8 @@ module.exports = {
   // "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}",
   "complete": function (data, {logger, chalk}) {
     const base = data.inPlace ? '' : data.destDirName + '/'
-    fs.rename(`${base}__name__`, `${base}${data.name}`, onerror)
+    fs.rename(`${base}{{name}}/{{name}}`, `${base}{{name}}/${data.name}`, onerror)
+    fs.rename(`${base}{{name}}`, `${base}${data.name}`, onerror)
     cmds = data.inPlace ? '' : `cd ${data.destDirName}\n  `
     cmds += `follow the instructions on README.md
   (or see https://github.com/evolutio/djavue/blob/master/template/README.md)`

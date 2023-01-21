@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Jorge Oliva",
+    "username": "jorge",
+    "email": "jorgeo@example.com",
+    "first_name": "Jorge",
+    "last_name": "Snow",
+    "permissions": { "ADMIN": false, "STAFF": false }
+  },
+  {
+    "id": 2,
+    "name": "John Doe",
+    "username": "john",
+    "email": "jd@example.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "permissions": { "ADMIN": false, "STAFF": false }
+  }
+]

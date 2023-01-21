@@ -6,3 +6,6 @@ coverage.xml
 htmlcov/
 .idea
 /{{name}}.log
+/static
+
+/apimock/node_modules

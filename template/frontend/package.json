@@ -1,33 +1,33 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "tonylampada <tonylampada@gmail.com>",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "format": "prettier .  --write"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^2.0.8",
-    "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0",
-    "bluebird": "^3.5.1",
-    "nuxt": "^1.0.0",
-    "vue2-filters": "^0.3.0",
-    "vuetify": "^1.0.4"
+    "@mdi/font": "7.0.96",
+    "axios": "^1.2.1",
+    "pinia": "^2.0.28",
+    "roboto-fontface": "*",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6",
+    "vuetify": "^3.0.5",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "vite": "^4.0.0",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jsdom": "^20.0.3",
+    "prettier": "2.8.1"
   }
 }
