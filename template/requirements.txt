@@ -1,4 +1,4 @@
-Django==1.11
+Django==2.2.24
 django-sql-explorer==1.1.1
 psycopg2==2.7.4
 python-dateutil==2.6.1
